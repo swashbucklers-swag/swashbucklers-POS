@@ -1,0 +1,102 @@
+<mat-card>
+  <mat-spinner *ngIf ="isLoading"></mat-spinner>
+
+  <form (submit)="onSaveUser(postForm)" #postForm="ngForm" *ngIf ="!isLoading">
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="employeeId"
+      [ngModel]="user?.employeeId"
+      required
+      placeholder="ID"
+      #employeeId="ngModel"
+      >
+      <mat-error *ngIf="employeeId.invalid">Please enter a post title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="firstName"
+      [ngModel]="user?.firstName"
+      required
+      placeholder="First name"
+      #firstName="ngModel"
+      >
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="lastName"
+      [ngModel]="user?.lastName"
+      required
+      placeholder="Last name"
+      #lastName="ngModel"
+      >
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="email"
+      [ngModel]="user?.email"
+      required
+      placeholder="email"
+      #email="ngModel"
+      >
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="password"
+      [ngModel]="user?.password"
+      required
+      placeholder="password"
+      #password="ngModel"
+      >
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="phoneNumber"
+      [ngModel]="user?.phoneNumber"
+      required
+      placeholder="phone number"
+      #phoneNumber="ngModel"
+      >
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="location"
+      [ngModel]="user?.location"
+      required
+      placeholder="location"
+      #location="ngModel"
+      >
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      type="text"
+      name="rank"
+      required
+      placeholder="rank"
+
+      matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto"
+      >
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+      <mat-error *ngIf="">Please enter a post content</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color= "accent" type="submit">Save Post</button>
+  </form>
+</mat-card>
