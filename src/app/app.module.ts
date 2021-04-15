@@ -24,7 +24,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { CustomersComponent } from './customers/customers.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { LoginComponent } from './login/login.component'
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeService } from './services/employee.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
+import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 
 @NgModule({
@@ -32,11 +41,19 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete'
     //here we are going to declare all our components
     AppComponent,
     HeaderComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CustomersComponent,
+    InventoryComponent,
+    LoginComponent,
+    DashboardComponent,
+    ClockinClockoutComponent,
+    MainLandingPageComponent,
+    EmployeesComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
@@ -67,7 +84,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete'
   entryComponents: [
     CreateUserComponent
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
