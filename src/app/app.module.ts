@@ -34,6 +34,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
 import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { LocationComponent } from './location/location.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { EmployeesComponent } from './employees/employees.component';
     DashboardComponent,
     ClockinClockoutComponent,
     MainLandingPageComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    LocationComponent,
+    EmployeeListComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
