@@ -28,12 +28,12 @@ export class EmployeeListComponent implements OnInit {
       }
     )
   }
-  oneEmployee() {
-    this.employeeService.getOneEmployee().subscribe(
-      data => {
-        this.employee = data;
-      }
-    )
-  }
+  // oneEmployee() {
+  //   this.employeeService.getOneEmployee().subscribe(
+  //     data => {
+  //       this.employee = data;
+  //     }
+  //   )
+  // }
 
 }
