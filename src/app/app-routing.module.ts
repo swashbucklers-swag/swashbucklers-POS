@@ -5,6 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
+import { OrderFormComponent } from './orders/order-form/order-form.component';
+import { OrdersComponent } from './orders/orders.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'clock-in-out', component: ClockinClockoutComponent},
   { path: 'swashbucklers/landing-page', component: MainLandingPageComponent},
-  { path: 'employees/show', component: EmployeeListComponent}
+  { path: 'employees/show', component: EmployeeListComponent},
+  { path: 'orders', component: OrdersComponent},
+  { path: 'createOrderForm', component: OrderFormComponent}
 ];
 
 @NgModule({

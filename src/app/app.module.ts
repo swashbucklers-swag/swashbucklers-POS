@@ -36,6 +36,8 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { EmployeesComponent } from './employees/employees.component';
 import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderFormComponent } from './orders/order-form/order-form.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     MainLandingPageComponent,
     EmployeesComponent,
     LocationComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    OrdersComponent,
+    OrderFormComponent
 
   ],
   //you have to import and export here so angular knows you want to use it

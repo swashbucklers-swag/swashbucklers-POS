@@ -1,0 +1,51 @@
+<div class="container">
+  <mat-card>
+    <div class="row">
+      <div class="col-4 extra-space"></div>
+      <div class="col-4 text-center">
+        <h1>Please enter your credentials</h1>
+      </div>
+    </div>
+      <mat-spinner *ngIf ="isLoading"></mat-spinner>
+
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 border border-dark p-5 loginBox">
+          <form (submit)="onSaveLogin(postForm)" #postForm="ngForm" *ngIf ="!isLoading">
+
+            <div class="row">
+              <mat-form-field>
+                <input matInput
+                type="text"
+                name="email"
+                [ngModel]="user?.email"
+                required
+                placeholder="email"
+                #email="ngModel"
+                >
+                <mat-error *ngIf="">Please enter a post content</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field>
+                <input matInput
+                type="text"
+                name="password"
+                [ngModel]="user?.password"
+                required
+                placeholder="password"
+                #password="ngModel"
+                >
+              </mat-form-field>
+
+            </div>
+            <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit">Login</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col extra-space"></div>
+      </div>
+  </mat-card>
+</div>
