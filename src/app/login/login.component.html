@@ -6,19 +6,18 @@
         <h1>Please enter your credentials</h1>
       </div>
     </div>
-      <mat-spinner *ngIf ="isLoading"></mat-spinner>
 
       <div class="row">
         <div class="col-4"></div>
         <div class="col-4 border border-dark p-5 loginBox">
-          <form (submit)="onSaveLogin(postForm)" #postForm="ngForm" *ngIf ="!isLoading">
+          <form (submit)="onSaveLogin(postForm)" #postForm="ngForm">
 
             <div class="row">
               <mat-form-field>
                 <input matInput
                 type="text"
                 name="email"
-                [ngModel]="user?.email"
+                [ngModel]=""
                 required
                 placeholder="email"
                 #email="ngModel"
@@ -31,7 +30,7 @@
                 <input matInput
                 type="text"
                 name="password"
-                [ngModel]="user?.password"
+                [ngModel]=""
                 required
                 placeholder="password"
                 #password="ngModel"

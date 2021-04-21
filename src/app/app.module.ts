@@ -36,6 +36,8 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { EmployeesComponent } from './employees/employees.component';
 import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle'
+
 
 
 @NgModule({
@@ -69,7 +71,7 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatButtonToggleModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
@@ -83,7 +85,8 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatButtonToggleModule
+
   ],
   entryComponents: [
     CreateUserComponent

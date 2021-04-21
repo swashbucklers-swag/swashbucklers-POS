@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
+import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { LoginComponent } from './login/login.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'clock-in-out', component: ClockinClockoutComponent},
   { path: 'swashbucklers/landing-page', component: MainLandingPageComponent},
-  { path: 'employees/show', component: EmployeeListComponent}
+  { path: 'employees/show', component: EmployeeListComponent},
+  { path: 'customers/show', component: CustomersComponent}
 ];
 
 @NgModule({

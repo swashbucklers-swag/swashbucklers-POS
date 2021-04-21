@@ -15,14 +15,11 @@ export class LoginComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
 
-  isLoading = false;
-
   constructor (private router: Router) {
 
   }
 
   ngOnInit(){
-    this.isLoading = false;
   }
 
   onSaveLogin(form: NgForm){
@@ -30,10 +27,8 @@ export class LoginComponent implements OnInit {
       return;
     }
     alert("Form submited")
-    this.isLoading = true;
     this.router.navigate(['/swashbucklers/landing-page']);
     form.resetForm();
-    this.isLoading = false;
   }
 
 }

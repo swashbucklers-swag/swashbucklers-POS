@@ -1,13 +1,53 @@
-<mat-toolbar style="background-color: #ce1212;">
-  <div class="row">
-    <div class="col-10">
-      <span><a routerLink=""> Swashbucklers Store </a></span>
+<div class="bg-danger">
+  <div class="row align-items-center">
+    <div class="col-md-2">
+      <div class="list-group">
+        <div class="list-group-item bg-danger" >
+          <div class="d-flex w-100">
+            <h3 class="mb-1">Edson Rodriguez</h3>
+          </div>
+          <p class="mb-1 ">last login</p>
+          <div class="d-flex w-100 justify-content-between">
+            <small>12/21/21</small>
+            <small>14:15</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 text-sm-center">
+      <h1>Swashbucklers</h1>
+    </div>
+    <div class="col-md-2">
+      <div class="list-group">
+        <div class="list-group-item w-100 bg-danger" >
+          <a type="Home" href="/login" class="btn text-nowrap">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
-  <span class="spacer"></span>
-  <ul>
-    <li>
-      <a mat-button routerLink="/swashbucklers" routerLinkActive="mat-primary">Dashboard</a>
-    </li>
-  </ul>
-</mat-toolbar>
+</div>
+
+<div id="mainMenuNavBar" >
+    <div class="navbar navbar-expand-lg navbar-light ">
+      <div class="navbar-collapse justify-content-center">
+        <ul class="navbar-nav mb-2">
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Home</a>
+          </li>
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Orders</a>
+          </li>
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Employees</a>
+          </li>
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Locations</a>
+          </li>
+          <li class="">
+            <a type="button" href="/clock-in-out" class="btn text-nowrap">Clock in/out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
