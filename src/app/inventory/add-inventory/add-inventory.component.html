@@ -1,0 +1,26 @@
+<div>
+    <form style="padding: 5px;" class="form-horizontal">
+        <div class="form-control">
+            <div class="input-group">
+                <label for="name" style="padding-left: 10px; padding-right: 10px;">Name:</label>
+                <input [(ngModel)]="newInventory.name" type="text" id="name" name="name" class="form-control">
+
+                <label for="price" style="padding-left: 10px; padding-right: 10px;">Price:</label>
+                <input [(ngModel)]="newInventory.price" type="number" min="0" id="price" name="price" class="form-control">
+
+                <label for="discount" style="padding-left: 10px; padding-right: 10px;">Discount:</label>
+                <input [(ngModel)]="newInventory.discount" type="number" min="0" max="99" id="discount" name="discount" class="form-control">
+
+                <label for="quant" style="padding-left: 10px; padding-right: 10px;">Quantity:</label>
+                <input [(ngModel)]="newInventory.quantity" type="number" min="0" id="quant" name="quant" class="form-control">
+
+                <button (click)="onSubmit()" class="btn btn-primary">Save New Inventory</button>
+            </div>
+
+            <div class="input-group" style="padding-top: 10px;">
+                <label for="desc" style="padding-left: 10px; padding-right: 10px;">Description:</label>
+                <textarea [(ngModel)]="newInventory.description" type="text" name="desc" class="form-control"></textarea>
+            </div>
+        </div>
+    </form>
+</div>

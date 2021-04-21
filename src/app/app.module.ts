@@ -57,6 +57,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LocationComponent,
     EmployeeListComponent,
     AddCustomerComponent
+
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [
