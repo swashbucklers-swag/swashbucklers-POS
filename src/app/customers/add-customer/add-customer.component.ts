@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {CustomerService} from '../customer.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'add-customer',
@@ -10,8 +9,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-
-  private apiServerUrl = environment.apiBaseUrl;
 
   i = 0;
 
