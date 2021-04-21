@@ -38,6 +38,7 @@ import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './orders/order-form/order-form.component';
+import { OrderListComponent } from './orders/order-list/order-list.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { OrderFormComponent } from './orders/order-form/order-form.component';
     LocationComponent,
     EmployeeListComponent,
     OrdersComponent,
-    OrderFormComponent
+    OrderFormComponent,
+    OrderListComponent,
 
   ],
   //you have to import and export here so angular knows you want to use it

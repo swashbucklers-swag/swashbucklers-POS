@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Inventory } from 'src/app/common/inventory';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-order-form',
@@ -12,17 +14,21 @@ export class OrderFormComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
 
+  items: Inventory[];
+
+
   isLoading = false;
 
-  constructor (private router: Router) {
+  constructor (private router: Router, private orderService: OrderService) {
 
   }
 
   ngOnInit(){
     this.isLoading = false;
+    this.listItems();
   }
 
-  onSaveLogin(form: NgForm){
+  onSubmitForm(form: NgForm){
     if (form.invalid){
       return;
     }
@@ -32,5 +38,14 @@ export class OrderFormComponent implements OnInit {
     form.resetForm();
     this.isLoading = false;
   }
+
+  listItems(): void {
+    this.orderService.getInventory().subscribe(
+      response => {
+        this.items = response.content;
+      }
+    )
+  }
+
 
 }

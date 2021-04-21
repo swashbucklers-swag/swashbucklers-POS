@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-8 mx-auto">
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Order Status</th>
+                    <th>Purchase Date</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let thisOrder of orders, let i = index">
+                    <td>{{ thisOrder.customer.firstName }} {{ thisOrder.customer.lastName }}</td>
+                    <td>{{ thisOrder.orderDetails[i].item.name }}</td>
+                    <td>{{ thisOrder.orderDetails[i].quantity }}</td>
+                    <td>{{ thisOrder.statusHistory[i].orderStatus }}</td>
+                    <td>{{ thisOrder.dateOfOrder | date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,36 +1,38 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Employee } from '../common/employee';
+import { Order } from '../common/order';
+import { OrdersComponent } from '../orders/orders.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  // private baseUrl = 'http://localhost:9009/employee/all';
-  // private newUrl = 'http://localhost:9009/employee/email?email=cami4@mail.com';
+  private baseUrl2 = 'http://localhost:9090/order/all';
+  private baseUrlItem = 'http://localhost:9090/inventory/all';
+
+  httpHeaders: HttpHeaders = new HttpHeaders({
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MDA4NjE3LCJleHAiOjE2MTkwNDQ2MTd9.X2gQkcvBDGOaOiJgCO_AvT6X-J3Qar7EEEFeWjlr8GA',
+  });
 
   constructor(private httpClient: HttpClient) { }
 
-
-  // getEmployeeList(): Observable<Employee[]> {
-  //   return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
-  //     map(response => response.content.employees)
-  //   );
-  // }
-
-  // getOneEmployee(): Observable<Employee> {
-  //   return this.httpClient.get<GetResponse>(this.newUrl).pipe(
-  //     map(response => response.content.employee)
-  //   );
-  // }
+  getOrders(): Observable<any> {
+    return this.httpClient.get(this.baseUrl2, { headers: this.httpHeaders })
+  }
+  
+  getInventory(): Observable<any> {
+    return this.httpClient.get(this.baseUrlItem, { headers: this.httpHeaders })
+  }
 }
 
-// interface GetResponse {
-//   content: {
-//     employees: Employee[];
-//     // employee: Employee;
-//   }
-// }
+
+
+interface GetResponse {
+  content: [{
+    orders:Order[]
+  }];
+}

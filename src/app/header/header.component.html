@@ -1,50 +1,52 @@
-<!-- <mat-toolbar style="background-color: #ce1212;">
-  <div class="row">
-    <div class="col-10">
-      <span><a routerLink=""> Swashbucklers Store </a></span>
+<div class="bg-danger">
+  <div class="row align-items-center">
+    <div class="col-md-2">
+      <div class="list-group">
+        <div class="list-group-item bg-danger" >
+          <div class="d-flex w-100">
+            <h3 class="mb-1">Edson Rodriguez</h3>
+          </div>
+          <p class="mb-1 ">last login</p>
+          <div class="d-flex w-100 justify-content-between">
+            <small>12/21/21</small>
+            <small>14:15</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 text-sm-center">
+      <h1>Swashbucklers</h1>
+    </div>
+    <div class="col-md-2">
+      <div class="list-group">
+        <div class="list-group-item w-100 bg-danger" >
+          <a type="Home" href="/login" class="btn text-nowrap">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
-  <span class="spacer"></span>
-  <ul>
-    <li>
-      <a mat-button routerLink="/swashbucklers" routerLinkActive="mat-primary">Dashboard</a>
-    </li>
-  </ul>
-</mat-toolbar> -->
+</div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<div id="mainMenuNavBar" >
+    <div class="navbar navbar-expand-lg navbar-light ">
+      <div class="navbar-collapse justify-content-center">
+        <ul class="navbar-nav mb-2">
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Home</a>
+          </li>
+          <li class="">
+            <a type="button" href="/orders" class="btn text-nowrap">Orders</a>
+          </li>
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Employees</a>
+          </li>
+          <li class="">
+            <a type="button" href="" class="btn text-nowrap">Locations</a>
+          </li>
+          <li class="">
+            <a type="button" href="/clock-in-out" class="btn text-nowrap">Clock in/out</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+</div>

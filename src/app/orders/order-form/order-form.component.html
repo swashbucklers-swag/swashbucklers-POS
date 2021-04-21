@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-4 extra-space"></div>
       <div class="col-4 text-center">
-        <h1>Please enter your credentials</h1>
+        <h1>Please fill out Order Form</h1>
       </div>
     </div>
       <mat-spinner *ngIf ="isLoading"></mat-spinner>
@@ -11,37 +11,36 @@
       <div class="row">
         <div class="col-4"></div>
         <div class="col-4 border border-dark p-5 loginBox">
-          <form (submit)="onSaveLogin(postForm)" #postForm="ngForm" *ngIf ="!isLoading">
+          <form (submit)="onSubmitForm(postForm)" #postForm="ngForm" *ngIf ="!isLoading">
+            <div class="row form-group mb-2">
+              <label for="Customer Email">Customer Email</label>
 
-            <div class="row">
-              <mat-form-field>
-                <input matInput
+                <input class="form-group"
                 type="text"
                 name="email"
-                [ngModel]="user?.email"
+                [ngModel]="customer?.email"
                 required
-                placeholder="email"
+                placeholder="Customer's email"
                 #email="ngModel"
                 >
-                <mat-error *ngIf="">Please enter a post content</mat-error>
-              </mat-form-field>
+
+            </div>
+            <div class="row form-group mt-2">
+              <label for="Customer Email">Select an item</label>
+                <select class="form-control mb-2" name="item" id="" *ngFor="let thisItem of items">
+                  <option value="placeholder" style="-color: lightgray;">Please choose an item</option>
+
+                  <option value="">{{thisItem.item.name}}</option>
+                </select>
+            </div>
+            <div class="row form-group ml-0 mb-2">
+              <label for="quantity">Quantity</label>
+              <input type="number" name="quantity">
             </div>
             <div class="row">
-              <mat-form-field>
-                <input matInput
-                type="text"
-                name="password"
-                [ngModel]="user?.password"
-                required
-                placeholder="password"
-                #password="ngModel"
-                >
-              </mat-form-field>
-
+              <button class="btn btn-danger mb-2 ml-0" type="submit">Create Order</button>
             </div>
-            <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit">Login</button>
           </form>
-
         </div>
       </div>
       <div class="row">
