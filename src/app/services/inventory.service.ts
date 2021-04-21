@@ -45,21 +45,28 @@ export class InventoryService {
 
   addInventory(inventory:Inventory){
     this.inventory.push(inventory);
+    //todo post new inventory
+    console.log('add inventory: '.concat(JSON.stringify(inventory)));
   }
 
   editInventoryInfo(editedInventory:Inventory){
-    //todo post edit inventory info
-    console.log(JSON.stringify(editedInventory));
+    //todo put edit inventory info
+    console.log('edit inventory info: '.concat(JSON.stringify(editedInventory)));
   }
 
   editInventoryDiscount(editedInventory:Inventory){
-    //todo post edit inventory discount
-    console.log(JSON.stringify(editedInventory));
+    //todo put edit inventory discount
+    console.log('edit inventory discount: '.concat(JSON.stringify(editedInventory)));
   }
 
   editInventoryQuantity(editedInventory:Inventory){
-    //todo post edit inventory quantity
-    console.log(JSON.stringify(editedInventory));
+    //todo put edit inventory quantity
+    console.log('edit inventory quantity: '.concat(JSON.stringify(editedInventory)));
+  }
+
+  deleteInventory(inventoryToDelete:Inventory){
+    //todo get delete inventory by id
+    console.log('delete: '.concat(JSON.stringify(inventoryToDelete)));
   }
 
   //in development, api call with jwt header to get inventory

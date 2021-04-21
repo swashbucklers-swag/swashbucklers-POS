@@ -18,8 +18,7 @@ export class InventoryItemComponent implements OnInit {
 
   delete(){
     if(confirm('Are you sure you want to delete itemId:'.concat(this.inventory.itemId.toString()).concat(" name: ").concat(this.inventory.name))){
-      //todo send get request to delete item
-      console.log("delete ".concat(this.inventory.name.toString()));
+      this.inventoryService.deleteInventory(this.inventory);
     }
   }
 
@@ -30,15 +29,18 @@ export class InventoryItemComponent implements OnInit {
   saveInfo(){
     this.inventoryService.editInventoryInfo(this.inventory);
     this.toggleEditInfo();
+    alert('Item info saved succesfully');
   }
 
   saveDiscount(){
     this.inventoryService.editInventoryDiscount(this.inventory);
     this.toggleEditInfo();
+    alert('Item discount saved succesfully');
   }
 
   saveQuantity(){
     this.inventoryService.editInventoryQuantity(this.inventory);
     this.toggleEditInfo();
+    alert('Item quantity saved succesfully');
   }
 }
