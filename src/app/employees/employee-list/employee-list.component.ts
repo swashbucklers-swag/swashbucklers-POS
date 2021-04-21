@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/common/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -9,24 +10,28 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employees: Employee[];
-  employee: Employee;
+  public employees: Employee[];
+
 
 
   constructor(private employeeService: EmployeeService) {
   }
 
   ngOnInit() {
-    this.listEmployees();
+    this.listEmployees(); 
   }
 
 
-  listEmployees() {
+  listEmployees(): void {
     this.employeeService.getEmployeeList().subscribe(
-      data => {
-        this.employees = data;
+      (response: Employee[]) => {
+        this.employees = response;
+        console.log(this.employees);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       }
-    )
+    );
   }
   // oneEmployee() {
   //   this.employeeService.getOneEmployee().subscribe(
