@@ -8,6 +8,7 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { OrdersComponent } from './orders/orders.component';
+import { InventoryComponent } from './inventory/inventory.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'employees/show', component: EmployeeListComponent},
   { path: 'orders', component: OrdersComponent},
   { path: 'createOrderForm', component: OrderFormComponent},
-  { path: 'allOrders', component: OrderListComponent}
+  { path: 'allOrders', component: OrderListComponent},
+  { path: 'inventory/manage', component: InventoryComponent}
+
 ];
 
 @NgModule({

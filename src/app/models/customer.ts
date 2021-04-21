@@ -1,3 +1,5 @@
+import { Location } from "./location";
+
 export class Customer {
     customerId: number;
     firstName: String;

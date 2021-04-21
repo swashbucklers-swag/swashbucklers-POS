@@ -16,7 +16,8 @@
                     <td>{{ thisOrder.customer.firstName }} {{ thisOrder.customer.lastName }}</td>
                     <td>{{ thisOrder.orderDetails[i].item.name }}</td>
                     <td>{{ thisOrder.orderDetails[i].quantity }}</td>
-                    <td>{{ thisOrder.statusHistory[i].orderStatus }}</td>
+                    <!-- Need to figure out why Status History wont show anything -->
+                    <td>{{ thisOrder.statusHistory[i] }}</td>
                     <td>{{ thisOrder.dateOfOrder | date }}</td>
                 </tr>
             </tbody>

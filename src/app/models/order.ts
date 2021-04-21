@@ -1,10 +1,11 @@
 import { Customer } from "./customer";
 import { Item } from "./item";
+import { Location } from './location';
 
 export class Order {
     orderId: number;
     customer: Customer
-    location:Location;
+    location: Location;
     dateOfOrder: Date;
     statusHistory: [{
         historyId: number;
@@ -15,6 +16,15 @@ export class Order {
         orderDetailsId:number;
         order: Order;
         item: Item;
+        quantity:number;
+    }];
+}
+
+export class CreateOrder {
+    customerId: number;
+    location: Location;
+    orderDetails:[{
+        itemId: number;
         quantity:number;
     }];
 }

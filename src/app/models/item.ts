@@ -1,4 +1,4 @@
-import { Inventory } from "./inventory";
+import { Inventory } from "./Inventory";
 
 export class Item {
     itemId: number;

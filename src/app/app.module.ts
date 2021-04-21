@@ -39,6 +39,8 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
 import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
+import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
+import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { OrderListComponent } from './orders/order-list/order-list.component';
     OrdersComponent,
     OrderFormComponent,
     OrderListComponent,
+    AddInventoryComponent,
+    InventoryItemComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
