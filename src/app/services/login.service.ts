@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BASE_API_URL, JWT} from '../models/globalConstants';
+import { BASE_API_URL, JWT} from '../../environments/environment';
 import { JSONWebToken } from '../models/JSONWebToken';
 
 @Injectable({
