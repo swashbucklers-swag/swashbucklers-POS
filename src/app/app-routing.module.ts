@@ -6,6 +6,8 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
 import { LoginComponent } from './login/login.component';
 import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
+import {CustomersComponent} from './customers/customers.component';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "swashbucklers"},
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'clock-in-out', component: ClockinClockoutComponent},
   { path: 'swashbucklers/landing-page', component: MainLandingPageComponent},
-  { path: 'employees/show', component: EmployeeListComponent}
+  { path: 'employees/show', component: EmployeeListComponent},
+  { path: 'customers', component: CustomersComponent},
+  { path: 'customers/add', component: AddCustomerComponent}
 ];
 
 @NgModule({

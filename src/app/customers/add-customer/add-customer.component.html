@@ -1,0 +1,127 @@
+<h1>Create New Customer</h1>
+<form (submit)="onSignUp(postForm)" #postForm="ngForm" >
+    <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="firstname"
+          required
+          placeholder="First Name"
+          #firstname="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your first name</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="lastname"
+          required
+          placeholder="Last Name"
+          #lastname="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your last name</mat-error>
+        </mat-form-field>
+      </div>
+    <div class="row">
+      <mat-form-field>
+        <input matInput
+        type="text"
+        name="email"
+        required
+        placeholder="email"
+        #email="ngModel"
+        ngModel
+        >
+        <mat-error *ngIf="">Please enter your email</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input matInput
+        type="text"
+        name="password"
+        [ngModel]=""
+        required
+        placeholder="password"
+        #password="ngModel"
+        ngModel
+        >
+        <mat-error *ngIf="">Please enter your password</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="phone"
+          required
+          placeholder="Phone Number"
+          #phone="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your phone number</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="address"
+          required
+          placeholder="Address"
+          #address="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your address</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="city"
+          required
+          placeholder="City"
+          #city="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your city</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="state"
+          required
+          placeholder="State"
+          #state="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your zip code</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+          type="text"
+          name="zip"
+          required
+          placeholder="Zip"
+          #zip="ngModel"
+          ngModel
+          >
+          <mat-error *ngIf="">Please enter your zip code</mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit">Create</button>
+    </form>
+    <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" onclick="location.href='/customers'">Back</button>
+<div class="row">
+  <div class="col extra-space"></div>
+</div>

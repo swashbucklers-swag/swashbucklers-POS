@@ -1,1 +1,9 @@
-<p>customers works!</p>
+<h2>Customers</h2>
+    <div *ngFor="let customer of customers">
+      <div>{{customer.firstName}} {{customer.lastName}}</div>
+      <div>{{customer.email}}</div>
+      <div>{{customer.phoneNumber}}</div>
+      <div>-----</div>
+  </div>
+   
+   <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit" onclick="location.href='/customers/add'">Add</button>

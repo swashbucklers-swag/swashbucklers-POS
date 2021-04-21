@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import{Customer} from './customer';
+import{CustomerService} from './customer.service';
 
 @Component({
   selector: 'app-customers',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersComponent implements OnInit {
 
-  constructor() { }
+  customers: Customer[];
+
+  constructor(private service: CustomerService) {
+   }
 
   ngOnInit(): void {
+    this.getCustomers();
+  }
+
+  public getCustomers(): void {
+    this.service.getCustomers().subscribe(
+      response => {
+        this.customers = response.content;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }

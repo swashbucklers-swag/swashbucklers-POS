@@ -28,7 +28,6 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { CustomersComponent } from './customers/customers.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component'
-import { HttpClientModule } from '@angular/common/http';
 import { EmployeeService } from './services/employee.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
@@ -36,6 +35,8 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { EmployeesComponent } from './employees/employees.component';
 import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 
 
 @NgModule({
@@ -52,8 +53,8 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     MainLandingPageComponent,
     EmployeesComponent,
     LocationComponent,
-    EmployeeListComponent
-
+    EmployeeListComponent,
+    AddCustomerComponent
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [
@@ -69,7 +70,8 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HttpClientModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
