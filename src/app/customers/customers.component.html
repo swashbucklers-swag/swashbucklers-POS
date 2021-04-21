@@ -1,9 +1,21 @@
 <h2>Customers</h2>
-    <div *ngFor="let customer of customers">
-      <div>{{customer.firstName}} {{customer.lastName}}</div>
-      <div>{{customer.email}}</div>
-      <div>{{customer.phoneNumber}}</div>
-      <div>-----</div>
-  </div>
+<table>
+  <thead>
+      <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let customer of customers">
+          <td>{{customer.firstName}}</td>
+          <td>{{customer.lastName}}</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.phoneNumber}}</td>
+      </tr>
+  </tbody>
+</table>
    
    <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit" onclick="location.href='/customers/add'">Add</button>

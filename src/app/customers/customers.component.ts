@@ -12,6 +12,8 @@ export class CustomersComponent implements OnInit {
 
   customers: Customer[];
 
+  headers = ["First Name", "Last Name", "Email", "Phone"];
+
   constructor(private service: CustomerService) {
    }
 
