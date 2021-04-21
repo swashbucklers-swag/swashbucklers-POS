@@ -37,6 +37,8 @@ import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -71,7 +73,9 @@ import { AddCustomerComponent } from './customers/add-customer/add-customer.comp
     MatInputModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [

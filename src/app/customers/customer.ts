@@ -1,7 +1,7 @@
 import { location } from "./location";
 
 export interface Customer {
-    customerid: number;
+    customerId: number;
     firstName: string;
     lastName: string;
     email: string;

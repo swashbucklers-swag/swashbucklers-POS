@@ -1,6 +1,6 @@
 <h1>Create New Customer</h1>
-<form (submit)="onSignUp(postForm)" #postForm="ngForm" >
-    <div class="row">
+<form (submit)="onSignUp(postForm)" #postForm="ngForm" class="col-10 mx-auto form-horizontal">
+    <div class="input-group">
         <mat-form-field>
           <input matInput
           type="text"
@@ -12,8 +12,6 @@
           >
           <mat-error *ngIf="">Please enter your first name</mat-error>
         </mat-form-field>
-      </div>
-      <div class="row">
         <mat-form-field>
           <input matInput
           type="text"
@@ -26,20 +24,19 @@
           <mat-error *ngIf="">Please enter your last name</mat-error>
         </mat-form-field>
       </div>
-    <div class="row">
+      <div class="input-group">
       <mat-form-field>
         <input matInput
-        type="text"
+        type="email"
         name="email"
         required
         placeholder="email"
         #email="ngModel"
         ngModel
+        [email]="true"
         >
         <mat-error *ngIf="">Please enter your email</mat-error>
       </mat-form-field>
-    </div>
-    <div class="row">
       <mat-form-field>
         <input matInput
         type="text"
@@ -52,11 +49,8 @@
         >
         <mat-error *ngIf="">Please enter your password</mat-error>
       </mat-form-field>
-
-    </div>
-    <div class="row">
         <mat-form-field>
-          <input matInput
+          <input maxlength="10" minlength="10" matInput
           type="text"
           name="phone"
           required
@@ -67,7 +61,7 @@
           <mat-error *ngIf="">Please enter your phone number</mat-error>
         </mat-form-field>
       </div>
-      <div class="row">
+      <div class="row w-50">
         <mat-form-field>
           <input matInput
           type="text"
@@ -80,7 +74,7 @@
           <mat-error *ngIf="">Please enter your address</mat-error>
         </mat-form-field>
       </div>
-      <div class="row">
+      <div class="input-group">
         <mat-form-field>
           <input matInput
           type="text"
@@ -92,23 +86,16 @@
           >
           <mat-error *ngIf="">Please enter your city</mat-error>
         </mat-form-field>
-      </div>
-      <div class="row">
         <mat-form-field>
-          <input matInput
-          type="text"
-          name="state"
-          required
-          placeholder="State"
-          #state="ngModel"
-          ngModel
-          >
-          <mat-error *ngIf="">Please enter your zip code</mat-error>
+          <mat-label>State</mat-label>
+          <mat-select [(ngModel)] = "selectedState" name = "state">>
+            <mat-option *ngFor="let state of states" [value]="state.statename">
+              {{state.statename}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
-      </div>
-      <div class="row">
         <mat-form-field>
-          <input matInput
+          <input maxlength="5" minlength="5" matInput
           type="text"
           name="zip"
           required
@@ -119,9 +106,9 @@
           <mat-error *ngIf="">Please enter your zip code</mat-error>
         </mat-form-field>
       </div>
-      <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit">Create</button>
+      <button class="btn btn-danger" style="background-color: #ce1212; color:#eeebdd" onclick="location.href='/customers'">Back</button>
+      <button class="btn btn-success" style="background-color: rgb(0, 84%, 44%); color:#eeebdd; float: right;" type="submit">Create</button>
     </form>
-    <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" onclick="location.href='/customers'">Back</button>
 <div class="row">
   <div class="col extra-space"></div>
 </div>

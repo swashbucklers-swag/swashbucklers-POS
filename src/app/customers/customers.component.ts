@@ -12,8 +12,6 @@ export class CustomersComponent implements OnInit {
 
   customers: Customer[];
 
-  headers = ["First Name", "Last Name", "Email", "Phone"];
-
   constructor(private service: CustomerService) {
    }
 
@@ -22,7 +20,7 @@ export class CustomersComponent implements OnInit {
   }
 
   public getCustomers(): void {
-    this.service.getCustomers().subscribe(
+    this.service.getCustomers().then(
       response => {
         this.customers = response.content;
       },

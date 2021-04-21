@@ -22,7 +22,7 @@ export class CustomerService {
         let r = this.http.post(`${this.apiServerUrl}/customer/create`, customer, { headers: this.httpHeaders });
         r.subscribe();
   }
-  getCustomers(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/customer/all`, { headers: this.httpHeaders });
+  getCustomers(): Promise<any> {
+    return this.http.get(`${this.apiServerUrl}/customer/all`, { headers: this.httpHeaders }).toPromise();
   }
 }
