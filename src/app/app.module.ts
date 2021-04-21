@@ -36,9 +36,8 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { EmployeesComponent } from './employees/employees.component';
 import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle'
-
-
+import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
+import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
     MainLandingPageComponent,
     EmployeesComponent,
     LocationComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    InventoryItemComponent,
+    AddInventoryComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
@@ -70,8 +71,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
-    ReactiveFormsModule,
-    MatButtonToggleModule
+    ReactiveFormsModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
@@ -84,8 +84,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
-    ReactiveFormsModule,
-    MatButtonToggleModule
+    ReactiveFormsModule
 
   ],
   entryComponents: [
