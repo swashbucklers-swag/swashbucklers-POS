@@ -17,10 +17,10 @@ export class EmployeeService {
   // let Auth: HttpHeaders = new HttpHeaders;
 
   //   Auth.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE4OTUwNDMwLCJleHAiOjE2MTg5ODY0MzB9.edZ_27t3UIp65UIYDEm3X1Vv1K6n8quxBR-D1UOvd2Q");
-    
+
 
   getEmployeeList(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(`${this.apiServerUrl}/employee/all`, 
+    return this.httpClient.get<Employee[]>(`${this.apiServerUrl}/employee/all`,
     {headers: {Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE4OTg2OTQ1LCJleHAiOjE2MTkwMjI5NDV9._ithQx0Mjr9FOC65HT5mKdiZ_pocWlaohsFfgzNg4-0"}});
 
   }
