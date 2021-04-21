@@ -1,1 +1,8 @@
-<p>inventory works!</p>
+<div id = "inventoryMain">
+    <h3 style="text-align: center; font-size: 48pt; padding-bottom: 12pt; padding-top: 20pt;">Inventory Management</h3>
+    <app-add-inventory></app-add-inventory>
+    <h3>Browse Inventory:</h3>
+    <div *ngFor="let i of inventory" [inventory] = "inventory" style="padding-bottom: 5px;">
+        <app-inventory-item [inventory] = "i"></app-inventory-item>
+    </div>
+</div>
