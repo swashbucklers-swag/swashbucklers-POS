@@ -39,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CustomerComponent } from './customers/customer/customer.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EmployeesComponent,
     LocationComponent,
     EmployeeListComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    CustomerComponent
 
   ],
   //you have to import and export here so angular knows you want to use it

@@ -24,4 +24,8 @@ export class CustomerService {
   getCustomers(): Promise<any> {
     return this.http.get(`${this.apiServerUrl}/customer/all`, { headers: this.httpHeaders }).toPromise();
   }
+  editCustomerInfo(customer: Customer): void {
+    let r = this.http.put(`${this.apiServerUrl}/customer/update`, customer, { headers: this.httpHeaders });
+    r.subscribe();
+}
 }

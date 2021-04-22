@@ -106,7 +106,7 @@
           <mat-error *ngIf="">Please enter your zip code</mat-error>
         </mat-form-field>
       </div>
-      <button class="btn btn-danger" style="background-color: #ce1212; color:#eeebdd" onclick="location.href='/customers'">Back</button>
+      <a class="btn btn-danger" (click)="onClickBack();" style="background-color: #ce1212; color:#eeebdd">Back</a>
       <button class="btn btn-success" style="background-color: rgb(0, 84%, 44%); color:#eeebdd; float: right;" type="submit">Create</button>
     </form>
 <div class="row">

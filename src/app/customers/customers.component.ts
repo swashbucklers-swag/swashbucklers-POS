@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { JWT } from 'src/environments/environment';
 import{Customer} from './customer';
 import{CustomerService} from './customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -13,7 +14,7 @@ export class CustomersComponent implements OnInit {
 
   customers: Customer[];
 
-  constructor(private service: CustomerService) {
+  constructor(private service: CustomerService, private router: Router) {
    }
 
   ngOnInit(): void {
@@ -30,6 +31,9 @@ export class CustomersComponent implements OnInit {
         console.log(JWT.currentJWT);
       }
     );
+  }
+  onClickAdd(): void {
+    this.router.navigate(['/customers/add']);
   }
 
 }

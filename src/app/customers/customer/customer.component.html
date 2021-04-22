@@ -1,0 +1,81 @@
+<div>
+    <table style="table-layout: fixed; word-wrap:break-word;" class="table">
+        <colgroup>
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ customer.customerId }}</th>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.lastName }}</td>
+                <td>{{ customer.email}}</td>
+                <td>{{ customer.phoneNumber }}</td>
+                <td>{{ customer.location.address }}</td>
+                <td>{{ customer.location.city }}</td>
+                <td>{{ customer.location.state }}</td>
+                <td>{{ customer.location.zip }}</td>
+                <td><button (click)="toggleEditInfo()" style="width: 100%;" class="btn btn-warning">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form *ngIf="editVisible" action="" style="padding: 5px;" class="form-horizontal">
+        <div class="form-control">
+            <div class="input-group" style="padding-top: 10px;">
+                <label for="firstname" style="padding-right: 10px; padding-left: 10px;">First Name:</label>
+                <input [(ngModel)]="customer.firstName" class="form-control" type="text" name="firstName">
+
+                <label for="lastname" style="padding-right: 10px; padding-left: 10px;">Last Name:</label>
+                <input [(ngModel)]="customer.lastName" class="form-control" type="text" name="lastName">
+
+                <label for="email" style="padding-right: 10px; padding-left: 10px;">Email:</label>
+                <input [(ngModel)]="customer.email" class="form-control" type="text" name="email">
+
+                <label for="phoneNumber" style="padding-right: 10px; padding-left: 10px;">Phone Number:</label>
+                <input [(ngModel)]="customer.phoneNumber" class="form-control" type="text" name="phoneNumber">
+                <div class="input-group" style="padding-top: 10px;">
+                    <label for="address" style="padding-right: 10px; padding-left: 10px;">Address:</label>
+                    <input [(ngModel)]="customer.location.address" class="form-control" type="text" name="address">
+    
+                    <label for="city" style="padding-right: 10px; padding-left: 10px;">City:</label>
+                    <input [(ngModel)]="customer.location.city" class="form-control" type="text" name="city">
+
+                    <label for="state" style="padding-right: 10px; padding-left: 10px;">State:</label>
+                    <select [(ngModel)]="customer.location.state" class="form-control" name="state">
+                        <option *ngFor="let state of states" [value]="state.statename">
+                            {{state.statename}}
+                            </option>
+                        </select>
+                    
+                    <label for="zip" style="padding-right: 10px; padding-left: 10px;">Zip:</label>
+                    <input [(ngModel)]="customer.location.zip" class="form-control" type="text" name="zip">
+                <button (click)="saveInfo()" class="btn btn-primary" style="float: right; margin-left: 10px;">Save Info</button>
+            </div>
+            </div>
+        </div>
+        
+    </form>
+</div>

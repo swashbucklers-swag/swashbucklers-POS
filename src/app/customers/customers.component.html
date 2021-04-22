@@ -1,31 +1,5 @@
-<h2>Customers</h2>
-<table>
-  <thead>
-      <tr>
-        <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zip</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let customer of customers">
-        <td>{{customer.customerId}}</td>
-          <td>{{customer.firstName}}</td>
-          <td>{{customer.lastName}}</td>
-          <td>{{customer.email}}</td>
-          <td>{{customer.phoneNumber}}</td>
-          <td>{{customer.location.address}}</td>
-          <td>{{customer.location.city}}</td>
-          <td>{{customer.location.state}}</td>
-          <td>{{customer.location.zip}}</td>
-      </tr>
-  </tbody>
-</table>
-   
-   <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit" onclick="location.href='/customers/add'">Add</button>
+<h1 style="text-align: center;">Customer Management</h1>
+<button class="btn btn-success" style="background-color: rgb(0, 84%, 44%); color:#eeebdd; float: right" (click)="onClickAdd();" >Add Customer</button>
+<div *ngFor="let c of customers" [customer] = "customer" style="padding-bottom: 5px; text-align: center;">
+  <app-customer [customer] = "c"></app-customer>
+</div>
