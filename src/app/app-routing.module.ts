@@ -5,12 +5,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
-<<<<<<< HEAD
 import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { OrdersComponent } from './orders/orders.component';
-=======
->>>>>>> origin/daniel
 import { InventoryComponent } from './inventory/inventory.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
 
@@ -22,15 +19,11 @@ const routes: Routes = [
   { path: 'clock-in-out', component: ClockinClockoutComponent},
   { path: 'swashbucklers/landing-page', component: MainLandingPageComponent},
   { path: 'employees/show', component: EmployeeListComponent},
-<<<<<<< HEAD
   { path: 'orders', component: OrdersComponent},
   { path: 'createOrderForm', component: OrderFormComponent},
   { path: 'allOrders', component: OrderListComponent},
   { path: 'inventory/manage', component: InventoryComponent}
 
-=======
-  { path: 'inventory/manage', component: InventoryComponent}
->>>>>>> origin/daniel
 ];
 
 @NgModule({

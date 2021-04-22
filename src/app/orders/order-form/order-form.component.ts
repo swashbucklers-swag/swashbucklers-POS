@@ -19,7 +19,7 @@ export class OrderFormComponent implements OnInit {
   createOrder: CreateOrder = { 
     customerId:0,
     location: new Location,
-    orderDetails: [{
+    orderDetailsDTOSet: [{
       itemId: 0,
       quantity:0
     }]
@@ -50,7 +50,7 @@ export class OrderFormComponent implements OnInit {
         state: form.value.state,
         zip: form.value.zip
       },
-      orderDetails: [{
+      orderDetailsDTOSet: [{
         itemId: form.value.itemId,
         quantity: form.value.quantity
       }]

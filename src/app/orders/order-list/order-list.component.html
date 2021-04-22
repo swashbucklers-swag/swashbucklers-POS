@@ -6,7 +6,6 @@
                     <th>Customer Name</th>
                     <th>Item Name</th>
                     <th>Quantity</th>
-                    <th>Order Status</th>
                     <th>Purchase Date</th>
 
                 </tr>
@@ -14,10 +13,8 @@
             <tbody>
                 <tr *ngFor="let thisOrder of orders, let i = index">
                     <td>{{ thisOrder.customer.firstName }} {{ thisOrder.customer.lastName }}</td>
-                    <td>{{ thisOrder.orderDetails[i].item.name }}</td>
-                    <td>{{ thisOrder.orderDetails[i].quantity }}</td>
-                    <!-- Need to figure out why Status History wont show anything -->
-                    <td>{{ thisOrder.statusHistory[i] }}</td>
+                    <td>{{ thisOrder.orderDetails[0].item.name }}</td>
+                    <td>{{ thisOrder.orderDetails[0].quantity }}</td>
                     <td>{{ thisOrder.dateOfOrder | date }}</td>
                 </tr>
             </tbody>

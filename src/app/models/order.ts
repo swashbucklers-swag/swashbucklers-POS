@@ -23,7 +23,7 @@ export class Order {
 export class CreateOrder {
     customerId: number;
     location: Location;
-    orderDetails:[{
+    orderDetailsDTOSet:[{
         itemId: number;
         quantity:number;
     }];

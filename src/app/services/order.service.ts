@@ -12,34 +12,21 @@ export class OrderService {
   private baseUrlCreate = '/order/create';
   private baseUrlItem = '/inventory/all';
 
-  // httpHeaders: HttpHeaders = new HttpHeaders({
-  //   Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MDA4NjE3LCJleHAiOjE2MTkwNDQ2MTd9.X2gQkcvBDGOaOiJgCO_AvT6X-J3Qar7EEEFeWjlr8GA',
-  // });
 
   constructor(private http: HttpClient) { }
-
-  // getOrders(): Promise<any> {
-  //   return this.http.get(this.baseUrl, { headers: this.httpHeaders }).toPromise();
-  // }
-  
-  // getInventory(): Promise<any> {
-  //   return this.http.get(this.baseUrlItem, { headers: this.httpHeaders }).toPromise();
-  // }
 
   createOrder(createOrder:CreateOrder) : void {
 
     const headerInfo = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MDU4NTA4LCJleHAiOjE2MTkwOTQ1MDh9.LoLVjXpYH7w3xj8qcsh-0IoMUymXPvc-tZycgTuN3ng'
+      'Authorization': 'Bearer '.concat(JWT.currentJWT)
     };
 
     const requestOptions = {
       headers: new HttpHeaders(headerInfo)
     };
-
-    let create = this.http.get<Order>(BASE_API_URL.concat(this.baseUrlCreate),requestOptions);
+    console.log(JWT.currentJWT);
+    let create = this.http.post<Order>(BASE_API_URL.concat(this.baseUrlCreate), createOrder, requestOptions);
     create.subscribe();
   }
 
@@ -47,9 +34,7 @@ export class OrderService {
 
     const headerInfo = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MDU4NTA4LCJleHAiOjE2MTkwOTQ1MDh9.LoLVjXpYH7w3xj8qcsh-0IoMUymXPvc-tZycgTuN3ng'
+      'Authorization': 'Bearer '.concat(JWT.currentJWT)
     };
 
     const requestOptions = {
