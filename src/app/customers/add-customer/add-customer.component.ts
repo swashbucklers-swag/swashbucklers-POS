@@ -25,6 +25,7 @@ selectedState: string;
 
   onSignUp(form: NgForm){
     if (form.invalid){
+      alert('Invalid data submitted');
       return;
     }
     let newcustomer = {customerId: this.i++,
@@ -42,6 +43,7 @@ selectedState: string;
     }
     this.service.addCustomer(newcustomer);
     form.resetForm();
+    alert('Customer created');
   }
   onClickBack(): void {
     this.router.navigate(['/customers']);

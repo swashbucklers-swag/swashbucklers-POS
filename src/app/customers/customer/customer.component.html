@@ -46,22 +46,22 @@
         <div class="form-control">
             <div class="input-group" style="padding-top: 10px;">
                 <label for="firstname" style="padding-right: 10px; padding-left: 10px;">First Name:</label>
-                <input [(ngModel)]="customer.firstName" class="form-control" type="text" name="firstName">
+                <input [(ngModel)]="customer.firstName" class="form-control" type="text" name="firstName" required>
 
                 <label for="lastname" style="padding-right: 10px; padding-left: 10px;">Last Name:</label>
-                <input [(ngModel)]="customer.lastName" class="form-control" type="text" name="lastName">
+                <input [(ngModel)]="customer.lastName" class="form-control" type="text" name="lastName" required>
 
                 <label for="email" style="padding-right: 10px; padding-left: 10px;">Email:</label>
-                <input [(ngModel)]="customer.email" class="form-control" type="text" name="email">
+                <input [(ngModel)]="customer.email" class="form-control" type="text" name="email" required>
 
                 <label for="phoneNumber" style="padding-right: 10px; padding-left: 10px;">Phone Number:</label>
-                <input [(ngModel)]="customer.phoneNumber" class="form-control" type="text" name="phoneNumber">
+                <input [(ngModel)]="customer.phoneNumber" class="form-control" type="text" name="phoneNumber" maxlength="10" minlength="10" required>
                 <div class="input-group" style="padding-top: 10px;">
                     <label for="address" style="padding-right: 10px; padding-left: 10px;">Address:</label>
-                    <input [(ngModel)]="customer.location.address" class="form-control" type="text" name="address">
+                    <input [(ngModel)]="customer.location.address" class="form-control" type="text" name="address" required>
     
                     <label for="city" style="padding-right: 10px; padding-left: 10px;">City:</label>
-                    <input [(ngModel)]="customer.location.city" class="form-control" type="text" name="city">
+                    <input [(ngModel)]="customer.location.city" class="form-control" type="text" name="city" required>
 
                     <label for="state" style="padding-right: 10px; padding-left: 10px;">State:</label>
                     <select [(ngModel)]="customer.location.state" class="form-control" name="state">
@@ -71,7 +71,7 @@
                         </select>
                     
                     <label for="zip" style="padding-right: 10px; padding-left: 10px;">Zip:</label>
-                    <input [(ngModel)]="customer.location.zip" class="form-control" type="text" name="zip">
+                    <input [(ngModel)]="customer.location.zip" class="form-control" type="text" name="zip" maxlength="5" minlength="5" required>
                 <button (click)="saveInfo()" class="btn btn-primary" style="float: right; margin-left: 10px;">Save Info</button>
             </div>
             </div>
