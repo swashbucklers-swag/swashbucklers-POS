@@ -57,7 +57,9 @@ export class OrderFormComponent implements OnInit {
     }
     alert("Form submited")
     this.isLoading = true;
-    this.router.navigate(['/swashbucklers/landing-page']);
+    console.log(this.createOrder);
+    this,this.orderService.createOrder(this.createOrder);
+    this.router.navigate(['/orders']);
     form.resetForm();
     this.isLoading = false;
   }
