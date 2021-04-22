@@ -36,6 +36,10 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { EmployeesComponent } from './employees/employees.component';
 import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 
@@ -55,8 +59,9 @@ import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.c
     LocationComponent,
     EmployeeListComponent,
     InventoryItemComponent,
-    AddInventoryComponent
-
+    AddInventoryComponent,
+    EmployeeListComponent,
+    AddCustomerComponent
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [
@@ -72,7 +77,10 @@ import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.c
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
