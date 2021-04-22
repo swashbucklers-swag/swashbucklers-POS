@@ -6,23 +6,20 @@
         <h1>Please enter your credentials</h1>
       </div>
     </div>
-
       <div class="row">
         <div class="col-4"></div>
         <div class="col-4 border border-dark p-5 loginBox">
           <form (submit)="onSaveLogin(postForm)" #postForm="ngForm">
-
             <div class="row">
               <mat-form-field>
                 <input matInput
                 type="text"
                 name="username"
-                [ngModel]="user?.email"
                 required
                 placeholder="email"
                 #email="ngModel"
+                ngModel
                 >
-                <mat-error *ngIf="">Please enter a post content</mat-error>
               </mat-form-field>
             </div>
             <div class="row">
@@ -30,13 +27,12 @@
                 <input matInput
                 type="password"
                 name="password"
-                [ngModel]=""
                 required
                 placeholder="password"
                 #password="ngModel"
+                ngModel
                 >
               </mat-form-field>
-
             </div>
             <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit">Login</button>
           </form>

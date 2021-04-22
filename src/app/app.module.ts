@@ -24,7 +24,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { CustomersComponent } from './customers/customers.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component'
@@ -38,6 +37,7 @@ import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,8 @@ import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.c
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
@@ -84,7 +85,8 @@ import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.c
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule
 
   ],
   entryComponents: [

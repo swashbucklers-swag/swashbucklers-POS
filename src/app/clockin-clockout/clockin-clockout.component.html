@@ -1,28 +1,26 @@
 <div class="container">
   <mat-card>
     <div class="row">
-      <div class="col-4 extra-space"></div>
-      <div class="col-4 text-center">
+      <div class="col-md-4 "></div>
+      <div class="col-md-4 text-center">
         <h1>Please enter your credentials</h1>
       </div>
+      <div class="col extra-space"></div>
     </div>
       <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 border border-dark p-5 loginBox">
-          <form (submit)="onClockIn(postForm)" #postForm="ngForm" >
-
+        <div class="col-md-4 col-sm-2 col-xs-4"></div>
+        <div class="col-md-4 col-sm-8 col-xs-4 border border-dark p-5 loginBox">
+          <form (submit)="onClockIn(postForm)" #postForm="ngForm">
             <div class="row">
               <mat-form-field>
                 <input matInput
                 type="text"
                 name="email"
-                [ngModel]=""
                 required
                 placeholder="email"
                 #email="ngModel"
                 ngModel
                 >
-                <mat-error *ngIf="">Please enter your email</mat-error>
               </mat-form-field>
             </div>
             <div class="row">
@@ -30,23 +28,30 @@
                 <input matInput
                 type="text"
                 name="password"
-                [ngModel]=""
                 required
                 placeholder="password"
                 #password="ngModel"
                 ngModel
                 >
-                <mat-error *ngIf="">Please enter your password</mat-error>
               </mat-form-field>
-
             </div>
-            <button mat-raised-button style="background-color: #12ce1b; color:#eeebdd" type="submit">clock in</button>
-            <button mat-raised-button style="background-color: #ce1212; color:#eeebdd" type="submit">clock out</button>
+            <div class="row" style="height: 50px; margin-top: 10px;">
+              <mat-radio-group required ngModel name="inOrOut">
+
+                <mat-radio-button style="margin-right: 80px;" value="in">Clock in</mat-radio-button>
+
+                <mat-radio-button value="out">Clock out</mat-radio-button>
+
+
+              </mat-radio-group>
+            </div>
+            <input class="btn btn-primary" type="submit">
           </form>
         </div>
+        <div class="col-md-4 col-sm-2 col-xs-4"></div>
       </div>
       <div class="row">
-        <div class="col extra-space"></div>
+        <div class="col-md-4 extra-space"></div>
       </div>
   </mat-card>
 </div>

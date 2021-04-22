@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 // import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
-import { Employee } from '../common/employee';
-import { Timesheet } from '../common/timesheet';
 import {TimesheetServices} from '../services/timesheet.services'
 
 @Component({
@@ -16,20 +14,29 @@ export class ClockinClockoutComponent implements OnInit {
   myTimesheets = [];
   constructor (private router: Router, private timesheetService: TimesheetServices) { }
 
-
-
   ngOnInit(): void {
   }
 
-  onClockIn(form: NgForm){
+  async onClockIn(form: NgForm){
     if (form.invalid){
       return;
     }
+    //console.log(form.value.inOrOut);
+    var methodResponse: Promise<any>;
 
-    this.timesheetService.clockIn(form.value.email,form.value.password);
+    if(form.value.inOrOut==="in"){
+      methodResponse=this.timesheetService.clockIn(form.value.email,form.value.password,"in");
+    }else{
+      methodResponse=this.timesheetService.clockIn(form.value.email,form.value.password,"out");
+    }
 
-    //this.router.navigate(['/swashbucklers/landing-page']);
-    form.resetForm();
+    methodResponse.then(data => {
+      console.log(data);
+      alert("Succesfully registered");
+    }).catch(exception => {
+      console.log(exception.error.message);
+      alert(exception.error.message);
+    })
 
   }
 
