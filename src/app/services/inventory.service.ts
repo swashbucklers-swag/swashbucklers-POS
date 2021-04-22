@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Inventory } from '../models/Inventory';
-import { JWT, BASE_API_URL } from '../../environments/environment';
+import { BASE_API_URL } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -10,12 +10,11 @@ import { HttpHeaders } from '@angular/common/http';
 })
 
 export class InventoryService {
-  url:string = "/inventory/all"
   inventory:Inventory[];
 
   constructor(private http:HttpClient) { }
 
-  getInventory():Promise<Inventory[]>{
+  getInventory1():Promise<Inventory[]>{
     this.inventory = [{
       itemId:1,
       name:"Pistol",
@@ -43,46 +42,110 @@ export class InventoryService {
     return of(this.inventory).toPromise();
   }
 
-  addInventory(inventory:Inventory){
-    this.inventory.push(inventory);
-    //todo post new inventory
-    console.log('add inventory: '.concat(JSON.stringify(inventory)));
-  }
-
-  editInventoryInfo(editedInventory:Inventory){
-    //todo put edit inventory info
-    console.log('edit inventory info: '.concat(JSON.stringify(editedInventory)));
-  }
-
-  editInventoryDiscount(editedInventory:Inventory){
-    //todo put edit inventory discount
-    console.log('edit inventory discount: '.concat(JSON.stringify(editedInventory)));
-  }
-
-  editInventoryQuantity(editedInventory:Inventory){
-    //todo put edit inventory quantity
-    console.log('edit inventory quantity: '.concat(JSON.stringify(editedInventory)));
-  }
-
-  deleteInventory(inventoryToDelete:Inventory){
-    //todo get delete inventory by id
-    console.log('delete: '.concat(JSON.stringify(inventoryToDelete)));
-  }
-
   //in development, api call with jwt header to get inventory
-  getInventory1():Promise<Inventory[]>{
+  getInventory():Promise<any>{
 
     const headerInfo = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
     const requestOptions = {
       headers: new HttpHeaders(headerInfo)
     };
 
-    return this.http.get<Inventory[]>(BASE_API_URL.concat(this.url), requestOptions).toPromise();
+    return this.http.get<any>(BASE_API_URL.concat("/inventory/all"), requestOptions).toPromise();
+  }
+
+  addInventory(inventory:Inventory):Promise<any>{
+
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    inventory.itemId = 0;
+
+    return this.http.post<any>(BASE_API_URL.concat("/inventory/add"), inventory, requestOptions).toPromise();
+  }
+
+  editInventoryInfo(editedInventory:Inventory):Promise<any>{
+
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    const inventoryInfo = {
+				itemId: editedInventory.itemId,
+				name: editedInventory.name,
+				description: editedInventory.description,
+				price: editedInventory.price
+    }
+
+    return this.http.put<any>(BASE_API_URL.concat("/inventory/update/info"), inventoryInfo, requestOptions).toPromise();
+  }
+
+  editInventoryDiscount(editedInventory:Inventory):Promise<any>{
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    const inventoryDiscount = {
+				itemId: editedInventory.itemId,
+				discount: editedInventory.discount
+    }
+
+    return this.http.put<any>(BASE_API_URL.concat("/inventory/update/discount"), inventoryDiscount, requestOptions).toPromise();
+  }
+
+  editInventoryQuantity(editedInventory:Inventory):Promise<any>{
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    const inventoryQuantity = {
+				itemId: editedInventory.itemId,
+				quantity: editedInventory.quantity
+    }
+
+    return this.http.put<any>(BASE_API_URL.concat("/inventory/update/quantity"), inventoryQuantity, requestOptions).toPromise();
+  }
+
+  deleteInventory(inventoryToDelete:Inventory):Promise<any>{
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    return this.http.delete<any>(BASE_API_URL.concat("/inventory/delete/".concat(inventoryToDelete.itemId.toString())), requestOptions).toPromise();
   }
 }

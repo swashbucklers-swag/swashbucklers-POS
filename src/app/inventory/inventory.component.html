@@ -5,6 +5,11 @@
     <app-add-inventory></app-add-inventory>
     <br>
     <h3 style="background-color: #ce1212; text-align: center; color: #FFF; padding-top: 5px; padding-bottom: 5px; font-size: 16pt;">Browse Inventory:</h3>
+    
+    <div *ngIf='isLoading' class="spinner-border text-danger" role="status" style="position: absolute; left: 48.7%;">
+        <span class="sr-only"></span>
+    </div>
+    
     <div *ngFor="let i of inventory" [inventory] = "inventory" style="padding-bottom: 5px;">
         <app-inventory-item [inventory] = "i"></app-inventory-item>
     </div>
