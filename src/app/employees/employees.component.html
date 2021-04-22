@@ -1,4 +1,103 @@
-<div *ngFor="let employee of employees">
-    <div>{{employee.firstName}}</div>
+<div class="clearfix">
+    <nav class="navbar-brand float-start">Manage Employee's</nav>
 </div>
 
+<div><br></div>
+
+<nav class="navbar navbar-expand navbar-ligt bg-light">
+
+    <div class="col nav-item-active" >
+        <a class="navbar-brand button" (click)="onOpenModal('Add')">Add Employee</a>
+    </div>
+
+    <div class="col">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+          </button>
+    </div>
+
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Search Employees" aria-label="uptosomething">
+    </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color:white;">Employee Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" (click)="onOpenModal()">Add Employee></a>
+          </li>
+       </ul>
+       <form class="form-inline my-2 my-lg-0 float-end">
+          <input type="search" name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+       </form>
+    </div>
+  </nav> -->
+
+<div>
+    <br>
+</div>
+
+
+<div class="row" id="main-spot">
+    <div class="main-box clearfix">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><span>Employee</span></th>
+                        <th ><span>Rank</span></th>
+                        <th><span>Email</span></th>
+                        <th><span>Phone</span></th>
+                        <th><span>ID</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees">
+                        <td>
+                            <a>{{employee.firstName}} {{employee.lastName}}</a>   
+                        </td>
+                        <td >
+                            <a>{{employee.rank}}</a>
+                        </td>
+                        <td>
+                            <a>{{employee.email}}</a>
+                        </td>
+                        <td>
+                            <a>{{employee.phoneNumber}}</a>
+                        </td>
+                        <td>
+                            <span>{{employee.employeeId}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="AddEmpoyee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>

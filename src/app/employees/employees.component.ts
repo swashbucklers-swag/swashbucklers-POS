@@ -23,7 +23,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   listEmployees(): void {
-    this.employeeService.getEmployeeList().subscribe(
+    this.employeeService.getEmployeeList().then(
       (response: Employee[]) => {
         this.employees = response;
         console.log(this.employees);
@@ -33,6 +33,15 @@ export class EmployeesComponent implements OnInit {
       }
     );
   }
+
+
+  onOpenModal(modl: string): void {
+  
+    //var myModal = new Modal(document.getElementById('myModal'), options);
+
+    alert("your adding an employee");
+  }
+
 
 
 }
