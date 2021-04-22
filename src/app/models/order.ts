@@ -23,6 +23,9 @@ export class Order {
 export class CreateOrder {
     customerId: number;
     location: Location;
+    statusHistory: [{
+        orderStatus: string;
+    }];
     orderDetailsDTOSet:[{
         itemId: number;
         quantity:number;

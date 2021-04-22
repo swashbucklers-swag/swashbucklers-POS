@@ -19,11 +19,13 @@ export class OrderFormComponent implements OnInit {
   createOrder: CreateOrder = { 
     customerId:0,
     location: new Location,
+    statusHistory: [{
+      orderStatus: ""
+    }],
     orderDetailsDTOSet: [{
       itemId: 0,
       quantity:0
     }]
-
   }
 
   isLoading = false;
@@ -41,6 +43,7 @@ export class OrderFormComponent implements OnInit {
     if (form.invalid){
       return;
     }
+    console.log("Hey");
     this.createOrder = {
       customerId: form.value.customerId,
       location: {
@@ -50,15 +53,18 @@ export class OrderFormComponent implements OnInit {
         state: form.value.state,
         zip: form.value.zip
       },
+      statusHistory: [{
+        orderStatus: "PROCESSING_ORDER"
+      }],
       orderDetailsDTOSet: [{
         itemId: form.value.itemId,
         quantity: form.value.quantity
       }]
     }
-    alert("Form submited")
+    alert("Order for has been submitted for processing")
     this.isLoading = true;
     console.log(this.createOrder);
-    this,this.orderService.createOrder(this.createOrder);
+    this.orderService.createOrder(this.createOrder);
     this.router.navigate(['/orders']);
     form.resetForm();
     this.isLoading = false;

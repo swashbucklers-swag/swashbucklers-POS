@@ -24,5 +24,5 @@ export const BASE_API_URL:string = 'http://127.0.0.1:9090';
   //Authorization: Bearer [header].[payload].[signature]
   //Authorization: Bearer JWT.currentJWT
 export class JWT {
-    public static currentJWT:string = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MDY0NTk5LCJleHAiOjE2MTkxMDA1OTl9.5jTh9q7lOTnRvw85f31JYrKHW8SJq3jwzCdoQZKIS5o';
+    public static currentJWT:string = '';
 }

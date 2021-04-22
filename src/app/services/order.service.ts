@@ -10,6 +10,7 @@ export class OrderService {
 
   private baseUrl = '/order/all';
   private baseUrlCreate = '/order/create';
+  private UrlFindByCustomerId = '/order/customer-id/';
   private baseUrlItem = '/inventory/all';
 
 
@@ -42,5 +43,18 @@ export class OrderService {
     };
 
     return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
+  }
+
+  getOrdersByCustomerService(customerId:number):Promise<any> {
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    return this.http.get<Order[]>(BASE_API_URL.concat(this.UrlFindByCustomerId)+customerId, requestOptions).toPromise();
   }
 }

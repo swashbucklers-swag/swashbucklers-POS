@@ -41,6 +41,10 @@ import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
+import { NewOrderTableComponent } from './orders/new-order-table/new-order-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -62,7 +66,8 @@ import { InventoryItemComponent } from './inventory/inventory-item/inventory-ite
     OrderFormComponent,
     OrderListComponent,
     AddInventoryComponent,
-    InventoryItemComponent
+    InventoryItemComponent,
+    NewOrderTableComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
@@ -79,7 +84,10 @@ import { InventoryItemComponent } from './inventory/inventory-item/inventory-ite
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-8 mx-auto">
+    <div class="col mx-auto">
         <table class="table table-light table-striped">
             <thead>
                 <tr>
@@ -7,6 +7,8 @@
                     <th>Item Name</th>
                     <th>Quantity</th>
                     <th>Purchase Date</th>
+                    <th>Delivery Location</th>
+                    <th>View Order(s)</th>
 
                 </tr>
             </thead>
@@ -16,9 +18,31 @@
                     <td>{{ thisOrder.orderDetails[0].item.name }}</td>
                     <td>{{ thisOrder.orderDetails[0].quantity }}</td>
                     <td>{{ thisOrder.dateOfOrder | date }}</td>
+                    <td>{{ thisOrder.location.address }}, {{ thisOrder.location.city }}, {{ thisOrder.location.state }} {{ thisOrder.location.zip }}</td>
+                    <td><button (click)="toggleViewCustomerOrders()" style="width: 100%;" class="btn btn-warning">View</button></td>                
                 </tr>
             </tbody>
         </table>
     </div>
+</div>
 
+<div *ngIf="editVisible" class="row">
+    <div class="col mx-auto">
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Purchase Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let thisOrder of orders, let i = index">
+                    <td>{{ thisOrder.orderDetails[0].item.name }}</td>
+                    <td>{{ thisOrder.orderDetails[0].quantity }}</td>
+                    <td>{{ thisOrder.dateOfOrder | date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
