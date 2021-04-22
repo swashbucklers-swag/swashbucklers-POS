@@ -36,12 +36,17 @@ import { MainLandingPageComponent } from './main-landing-page/main-landing-page.
 import { EmployeesComponent } from './employees/employees.component';
 import { LocationComponent } from './location/location.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+<<<<<<< HEAD
 import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
 
+=======
+import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
+import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
+>>>>>>> origin/daniel
 
 @NgModule({
   declarations: [
@@ -58,11 +63,16 @@ import { InventoryItemComponent } from './inventory/inventory-item/inventory-ite
     EmployeesComponent,
     LocationComponent,
     EmployeeListComponent,
+<<<<<<< HEAD
     OrdersComponent,
     OrderFormComponent,
     OrderListComponent,
     AddInventoryComponent,
     InventoryItemComponent
+=======
+    InventoryItemComponent,
+    AddInventoryComponent
+>>>>>>> origin/daniel
 
   ],
   //you have to import and export here so angular knows you want to use it

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
     this.isLoading = false;
   }
-
+7
   onSaveLogin(form: NgForm){
     if (form.invalid){
       alert("Invalid Email or Password");

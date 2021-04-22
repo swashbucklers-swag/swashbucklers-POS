@@ -37,4 +37,8 @@ export class AddInventoryComponent implements OnInit {
       this.inventoryService.addInventory(this.newInventory);
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/daniel
