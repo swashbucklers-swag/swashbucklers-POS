@@ -42,7 +42,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
+import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     AddInventoryComponent,
     EmployeeListComponent,
     AddCustomerComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EditEmployeeComponent
   ],
   // you have to import and export here so angular knows you want to use it
     imports: [

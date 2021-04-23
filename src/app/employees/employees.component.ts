@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../common/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-employees',
@@ -34,8 +34,8 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
-  addEmployee(addForm: NgForm): void {
-    this.employeeService.addEmployee(addForm.value).subscribe(
+  addEmployee(newHire: Employee): void {
+    this.employeeService.addEmployee(newHire).subscribe(
       (response: Employee) => {
         console.log(response);
         this.listEmployees();

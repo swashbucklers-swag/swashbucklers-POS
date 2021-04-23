@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Inventory } from '../models/Inventory'
-import { InventoryService } from '../services/inventory.service'
+import { Inventory } from '../models/Inventory';
+import { InventoryService } from '../services/inventory.service';
 
 @Component({
   selector: 'app-inventory',
@@ -9,11 +9,10 @@ import { InventoryService } from '../services/inventory.service'
 })
 export class InventoryComponent implements OnInit {
 
-  inventory:Inventory[];
-  inventoryService:InventoryService;
-  
+  inventory: Inventory[];
+  inventoryService: InventoryService;
 
-  constructor(inventoryService:InventoryService) {
+  constructor(inventoryService: InventoryService) {
     this.inventoryService = inventoryService;
   }
 

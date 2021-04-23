@@ -22,19 +22,18 @@ export class EmployeeService {
   }
 
   addEmployee(value: any): Observable<any> {
-    return this.httpClient.get(`${this.apiServerUrl}/employee/create`,
+    return this.httpClient.post(`${this.apiServerUrl}/employee/create`,
+      value,
       {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}});
   }
 
-  updateEmployee(): Promise<any> {
-    return this.httpClient.get(`${this.apiServerUrl}/employee/update`,
+  updateEmployee(value: any): Promise<any> {
+    return this.httpClient.put(`${this.apiServerUrl}/employee/update`,
+      value,
       {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
   }
 
-  deleteEmployee(): Promise<any> {
-    return this.httpClient.get(`${this.apiServerUrl}/employee/delete`,
-      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
-  }
+
 
 }
 
