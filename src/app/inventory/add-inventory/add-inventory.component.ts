@@ -7,6 +7,7 @@ import { InventoryService } from 'src/app/services/inventory.service';
   templateUrl: './add-inventory.component.html',
   styleUrls: ['./add-inventory.component.css']
 })
+
 export class AddInventoryComponent implements OnInit {
 
   newInventory:Inventory = {
@@ -21,10 +22,9 @@ export class AddInventoryComponent implements OnInit {
   constructor(private inventoryService:InventoryService) {}
 
   ngOnInit(): void {
-
   }
 
-  onSubmit(){
+  async onSubmit(){
     this.newInventory.quantity = Math.floor(this.newInventory.quantity);
     this.newInventory.discount = Math.floor(this.newInventory.discount);
     this.newInventory.price = Math.round((this.newInventory.price + Number.EPSILON) * 100) / 100;
@@ -33,8 +33,15 @@ export class AddInventoryComponent implements OnInit {
       alert("Failed to add new inventory. One or more fields are formatted incorrectly.")
 
     } else {
-      console.log(JSON.stringify(this.newInventory));
-      this.inventoryService.addInventory(this.newInventory);
+
+      try {
+        await this.inventoryService.addInventory(this.newInventory).then(() => {
+          alert("New Inventory Entery Added Successfully!");
+        })
+
+      } catch (exception) {
+        alert("Failed to add new Inventory Entry! Ensure inventory item is formatted correctly.");
+      }
     }
   }
 }
