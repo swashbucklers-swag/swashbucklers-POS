@@ -27,7 +27,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { CustomersComponent } from './customers/customers.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component'
-import { HttpClientModule } from '@angular/common/http';
 import { EmployeeService } from './services/employee.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
@@ -40,6 +39,12 @@ import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.c
 import {MatRadioModule} from '@angular/material/radio';
 import { ClockComponent } from './clock/clock.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { HttpClientModule } from '@angular/common/http';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CustomerComponent } from './customers/customer/customer.component';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +63,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     EmployeeListComponent,
     InventoryItemComponent,
     AddInventoryComponent,
-    ClockComponent
+    ClockComponent,
+    AddCustomerComponent,
+    CustomerComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
@@ -76,7 +83,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
