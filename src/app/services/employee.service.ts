@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment, JWT } from 'src/environments/environment';
+import { environment} from 'src/environments/environment';
 import { Employee } from '../common/employee';
 
 @Injectable({
@@ -11,7 +11,7 @@ import { Employee } from '../common/employee';
 export class EmployeeService {
 
   private apiServerUrl = environment.apiBaseUrl;
-  private token = JWT.currentJWT;
+  private token = environment.JWT;
 
   constructor(private httpClient: HttpClient) { }
 
