@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order, CreateOrder } from '../models/order';
-import { JWT, BASE_API_URL } from '../../environments/environment';
+import { BASE_API_URL } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +20,13 @@ export class OrderService {
 
     const headerInfo = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
     const requestOptions = {
       headers: new HttpHeaders(headerInfo)
     };
-    console.log(JWT.currentJWT);
+    console.log(localStorage.getItem('swagjwt'));
     let create = this.http.post<Order>(BASE_API_URL.concat(this.baseUrlCreate), createOrder, requestOptions);
     create.subscribe();
   }
@@ -35,7 +35,7 @@ export class OrderService {
 
     const headerInfo = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
     const requestOptions = {
@@ -49,7 +49,7 @@ export class OrderService {
 
     const headerInfo = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
     const requestOptions = {
@@ -62,7 +62,7 @@ export class OrderService {
   getOrdersByCustomerService(customerId:number):Promise<any> {
     const headerInfo = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
     const requestOptions = {

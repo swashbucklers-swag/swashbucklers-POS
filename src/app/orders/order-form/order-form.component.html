@@ -12,10 +12,12 @@
       <div class="col-4"></div>
       <div class="col-4 border border-dark p-5 loginBox">
         <form (submit)="onSubmitForm(postForm)" #postForm="ngForm">
+
           <div class="row form-group mb-2">
             <label for="customerId">Customers Identification Number</label>
-            <input class="form-group" type="number" name="customerId" required [ngModel]="createOrder?.customerId"
-              placeholder="Customer's Id" #customerId="ngModel">
+
+            <input class="form-group" type="number" name="customerId" required [ngModel]="createOrder?.customerId" 
+            placeholder="CustomersId" #customerId="ngModel">
           </div>
 
           <div class="row form-group mb-2">
@@ -32,10 +34,10 @@
               placeholder="city" #city="ngModel">
 
           </div>
-          <div class="col-2">
             <div class="row form-group mb-2">
               <label for="state">State</label>
-              <select name="state" class="form-control" [ngModel]="createOrder?.location.state" #state="ngModel">
+              <select name="state" class="form-select" [ngModel]="createOrder?.location.state" #state="ngModel">
+                <option value="">State</option>
                 <option value="AL">AL</option>
                 <option value="AZ">AZ</option>
                 <option value="AR">AR</option>
@@ -95,7 +97,6 @@
                 placeholder="zip" #zip="ngModel">
 
             </div>
-          </div>
           <div class="row form-group mb-2">
             <label for="itemId"></label>
 
