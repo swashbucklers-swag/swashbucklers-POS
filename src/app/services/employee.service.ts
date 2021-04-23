@@ -15,16 +15,26 @@ export class EmployeeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // let Auth: HttpHeaders = new HttpHeaders;
-
-  //   Auth.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE4OTUwNDMwLCJleHAiOjE2MTg5ODY0MzB9.edZ_27t3UIp65UIYDEm3X1Vv1K6n8quxBR-D1UOvd2Q");
-
 
   getEmployeeList(): Promise<any> {
-    return this.httpClient.get(`${this.apiServerUrl}/employee/all`, {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
-
+    return this.httpClient.get(`${this.apiServerUrl}/employee/all`,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
   }
 
+  addEmployee(value: any): Observable<any> {
+    return this.httpClient.get(`${this.apiServerUrl}/employee/create`,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}});
+  }
+
+  updateEmployee(): Promise<any> {
+    return this.httpClient.get(`${this.apiServerUrl}/employee/update`,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
+  }
+
+  deleteEmployee(): Promise<any> {
+    return this.httpClient.get(`${this.apiServerUrl}/employee/delete`,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
+  }
 
 }
 

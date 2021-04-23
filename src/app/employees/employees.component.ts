@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Employees } from './mock-employees';
 import { Employee } from '../common/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-employees',
@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class EmployeesComponent implements OnInit {
 
   public employees: Employee[];
-
+  public editEmployee: Employee;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -34,8 +34,19 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
+  addEmployee(addForm: NgForm): void {
+    this.employeeService.addEmployee(addForm.value).subscribe(
+      (response: Employee) => {
+        console.log(response);
+        this.listEmployees();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
-  onOpenModal(modal: string): void {
+  openModal(modal: string): void {
     const container = document.getElementById('main-spot');
     const button = document.createElement('button');
     button.type = 'button';
@@ -44,6 +55,9 @@ export class EmployeesComponent implements OnInit {
     switch (modal){
       case 'Add':
         button.setAttribute('data-bs-target', '#AddEmployee');
+        break;
+      case 'Edit':
+        button.setAttribute('data-bs-target', '#EditEmployee');
         break;
     }
     container.appendChild(button);
