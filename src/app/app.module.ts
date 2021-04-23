@@ -39,6 +39,7 @@ import { InventoryItemComponent } from './inventory/inventory-item/inventory-ite
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ClockComponent } from './clock/clock.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ClockComponent } from './clock/clock.component';
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonToggleModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
@@ -88,7 +90,8 @@ import { ClockComponent } from './clock/clock.component';
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonToggleModule
 
   ],
   entryComponents: [

@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BASE_API_URL, CurrentEmployee} from '../models/globalConstants';
 import { JSONWebToken } from '../models/JSONWebToken';
-import {Employee} from '../common/employee';
-import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
