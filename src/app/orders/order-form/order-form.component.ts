@@ -20,7 +20,7 @@ export class OrderFormComponent implements OnInit {
     customerId:0,
     location: new Location,
     statusHistory: [{
-      orderStatus: ""
+      orderStatus: "PROCESSING_ORDER"
     }],
     orderDetailsDTOSet: [{
       itemId: 0,
@@ -41,9 +41,9 @@ export class OrderFormComponent implements OnInit {
 
   onSubmitForm(form: NgForm){
     if (form.invalid){
+      alert("Form has invalid entries, please fix and try again")
       return;
     }
-    console.log("Hey");
     this.createOrder = {
       customerId: form.value.customerId,
       location: {
@@ -60,6 +60,9 @@ export class OrderFormComponent implements OnInit {
         itemId: form.value.itemId,
         quantity: form.value.quantity
       }]
+    }
+    if (this.createOrder.customerId < 0) {
+      alert("Invalid customerId, please enter a positive value")
     }
     alert("Order for has been submitted for processing")
     this.isLoading = true;

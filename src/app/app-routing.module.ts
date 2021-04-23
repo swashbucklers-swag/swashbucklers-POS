@@ -9,8 +9,7 @@ import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import {CreateUserComponent} from './users/createUsers/create-user.component';
-import { NewOrderTableComponent } from './orders/new-order-table/new-order-table.component';
+import { CreateUserComponent } from './users/createUsers/create-user.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "swashbucklers"},
@@ -23,9 +22,7 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent},
   { path: 'createOrderForm', component: OrderFormComponent},
   { path: 'allOrders', component: OrderListComponent},
-  { path: 'inventory/manage', component: InventoryComponent},
-  { path: 'newOrderTable', component: NewOrderTableComponent}
-
+  { path: 'inventory/manage', component: InventoryComponent}
 ];
 
 @NgModule({

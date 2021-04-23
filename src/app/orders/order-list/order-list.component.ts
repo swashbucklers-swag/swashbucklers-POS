@@ -9,10 +9,17 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class OrderListComponent implements OnInit {
 
-  orders: Order[];
+  orders: Order[] = [];
   orderService:OrderService;
   editVisible:boolean = false;
   customerId : number = 0;
+
+  page : {
+    pageNumber: number;
+    pageOffeset: number;
+    sortBy: string;
+    order: string;
+  }
 
   constructor(orderService: OrderService) {
     this.orderService = orderService;
@@ -24,7 +31,13 @@ export class OrderListComponent implements OnInit {
   }
 
   getAllOrders() {
+
     this.orderService.getOrders().then(order => this.orders = order.content);
+  }
+
+  getAllOrdersPagination() {
+
+    this.orderService.getOrdersPaginate(this.page.pageNumber-1, this.page.pageOffeset, this.page.sortBy, this.page.order).then(order => this.orders = order.content);
   }
 
 
@@ -34,6 +47,16 @@ export class OrderListComponent implements OnInit {
 
   getOrdersByCustomer(customerId:number){
     this.orderService.getOrdersByCustomerService(customerId).then(order => this.orders = order.content);
+  }
+
+  processResult() {
+    // return order => {
+    //   this.orders = order.content;
+    //   this.page.pageSize = order.content.pageable.pageSize;
+    //   this.page.totalPages = order.content.pageable.totalPages;
+    //   this.page.totalElements = order.content.totalElements;
+    //   this.page.pageNumber = order.content.number + 1;
+    // }
   }
 
 }

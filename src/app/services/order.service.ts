@@ -31,6 +31,20 @@ export class OrderService {
     create.subscribe();
   }
 
+  getOrdersPaginate(pageNumber:number, pageOffset:number, sortBy:string, order:string):Promise<any>{
+
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerInfo)
+    };
+
+    return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl)+'?page='+pageNumber+'&offset='+pageOffset+'&sortby='+sortBy+'&order='+order, requestOptions).toPromise();
+  }
+
   getOrders():Promise<any>{
 
     const headerInfo = {
@@ -58,3 +72,7 @@ export class OrderService {
     return this.http.get<Order[]>(BASE_API_URL.concat(this.UrlFindByCustomerId)+customerId, requestOptions).toPromise();
   }
 }
+
+
+
+

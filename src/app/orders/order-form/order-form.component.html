@@ -14,10 +14,8 @@
         <form (submit)="onSubmitForm(postForm)" #postForm="ngForm">
           <div class="row form-group mb-2">
             <label for="customerId">Customers Identification Number</label>
-
             <input class="form-group" type="number" name="customerId" required [ngModel]="createOrder?.customerId"
               placeholder="Customer's Id" #customerId="ngModel">
-
           </div>
 
           <div class="row form-group mb-2">
@@ -111,19 +109,6 @@
             <input class="form-group" type="number" name="quantity" required
               [ngModel]="createOrder?.orderDetailsDTOSet.quantity" placeholder="quantity" #quantity="ngModel">
 
-          </div>
-
-          <!-- <div class="row form-group mt-2">
-            <label for="Customer Email">Select an item</label>
-            <select class="form-control mb-2" name="item" id="" *ngFor="let thisItem of items">
-              <option value="placeholder" style="-color: lightgray;">Please choose an item</option>
-
-              <option value="">{{thisItem.item.name}}</option>
-            </select>
-          </div> -->
-          <div class="row">
-            <input type="hidden" class="form-group" name="orderStatus" required
-            [ngModel]="createOrder?.statusHistory.orderStatus" placeholder="orderStatus" #orderStatus="ngModel" >
           </div>
           
           <div class="row">
