@@ -46,7 +46,7 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
-  openModal(modal: string): void {
+  openModal(employee: Employee, modal: string): void {
     const container = document.getElementById('main-spot');
     const button = document.createElement('button');
     button.type = 'button';

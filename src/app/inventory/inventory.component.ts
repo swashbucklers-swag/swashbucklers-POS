@@ -18,7 +18,7 @@ export class InventoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.refreshInventory()
+    this.refreshInventory();
   }
 
   async refreshInventory(){
