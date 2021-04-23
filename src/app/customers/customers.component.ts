@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import{Customer} from './customer';
-import{CustomerService} from './customer.service';
+import { Customer } from './customer';
+import { CustomerService } from './customer.service';
 
 @Component({
   selector: 'app-customers',
@@ -29,5 +29,6 @@ export class CustomersComponent implements OnInit {
       }
     );
   }
+
 
 }

@@ -7,18 +7,17 @@ import { Customer } from './customer';
   providedIn: 'root'
 })
 export class CustomerService {
-    
+
     httpHeaders: HttpHeaders = new HttpHeaders({
-      "Content-Type": 'application/json',
-      "Authorization": 'Bearer '.concat(JWT.currentJWT)
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer '.concat(JWT.currentJWT)
     });
-  
     private apiServerUrl = BASE_API_URL;
 
   constructor(private http: HttpClient) { }
 
   addCustomer(customer: Customer): void {
-        let r = this.http.post(`${this.apiServerUrl}/customer/create`, customer, { headers: this.httpHeaders });
+        const r = this.http.post(`${this.apiServerUrl}/customer/create`, customer, { headers: this.httpHeaders });
         r.subscribe();
   }
   getCustomers(): Promise<any> {

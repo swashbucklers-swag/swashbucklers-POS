@@ -10,11 +10,7 @@
         <a class="navbar-brand button" (click)="onOpenModal('Add')">Add Employee</a>
     </div>
 
-    <div class="col">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-          </button>
-    </div>
+    <div class="col"></div>
 
     <div class="col">
         <input type="text" class="form-control" placeholder="Search Employees" aria-label="uptosomething">
@@ -55,12 +51,13 @@
                         <th><span>Email</span></th>
                         <th><span>Phone</span></th>
                         <th><span>ID</span></th>
+                        <th><span>Location</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let employee of employees">
                         <td>
-                            <a>{{employee.firstName}} {{employee.lastName}}</a>   
+                            <a>{{employee.firstName}} {{employee.lastName}}</a>
                         </td>
                         <td >
                             <a>{{employee.rank}}</a>
@@ -74,6 +71,9 @@
                         <td>
                             <span>{{employee.employeeId}}</span>
                         </td>
+                        <td>
+                            <span>{{employee.location}}</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -84,7 +84,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="AddEmpoyee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+<div class="modal fade" id="AddEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -92,7 +92,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

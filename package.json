@@ -2,6 +2,7 @@
   "name": "Swashbucklers",
   "version": "0.0.0",
   "scripts": {
+    "start": "ng serve",
     "postinstall": "ngcc"
   },
   "private": true,
