@@ -17,13 +17,6 @@ export const environment = {
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
 
-// todo change base url to aws once backend is deployed
-// Base url for api
-export const BASE_API_URL = 'http://127.0.0.1:9090';
-
-// this is the current logged in user's jwt when sending requests include a header with this jwt
-  // Authorization: Bearer [header].[payload].[signature]
-  // Authorization: Bearer JWT.currentJWT
-export class JWT {
-    public static currentJWT = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MTY5MDA2LCJleHAiOjE2MTkyMDUwMDZ9.AzImOfqhPlBBDiSlA91_UzJNuD-Wa2r4DfX_jgJblgQ';
-}
+//todo change base url to aws once backend is deployed
+//Base url for api
+export const BASE_API_URL:string = 'http://127.0.0.1:9090';
