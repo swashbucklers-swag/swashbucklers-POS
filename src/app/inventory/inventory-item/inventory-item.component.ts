@@ -80,7 +80,7 @@ export class InventoryItemComponent implements OnInit {
   async saveQuantity(){
     this.inventory.quantity = Math.floor(this.inventory.quantity);
 
-    if(this.inventory.quantity <= 0){
+    if(this.inventory.quantity < 0){
       alert("Failed to update item quantity, quantity must not be negative.");
 
     } else {
