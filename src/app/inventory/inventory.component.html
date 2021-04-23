@@ -6,11 +6,22 @@
     <br>
     <h3 style="background-color: #ce1212; text-align: center; color: #FFF; padding-top: 5px; padding-bottom: 5px; font-size: 16pt;">Browse Inventory:</h3>
     
-    <div *ngIf='isLoading' class="spinner-border text-danger" role="status" style="position: absolute; left: 48.7%;">
+    <div *ngIf='isLoading' class="spinner-border text-danger" role="status" style="position:absolute; left: 49.1%;">
         <span class="sr-only"></span>
     </div>
     
     <div *ngFor="let i of inventory" [inventory] = "inventory" style="padding-bottom: 5px;">
         <app-inventory-item [inventory] = "i"></app-inventory-item>
     </div>
+
+    <nav aria-label="Page navigation example" style="position:absolute; left: 50%; transform: translate(-50%, 0%);">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="pageFirst()" *ngIf="pageNumber > 1">First</a></li>
+            <li class="page-item"><a class="page-link" (click)="pagePrevious()" *ngIf="pageNumber > 0">Previous</a></li>
+            <li class="page-item"><a class="page-link" style="color: black; font-weight: bold;">Current Page: {{ pageNumber + 1 }}</a></li>
+            <li class="page-item"><a class="page-link" (click)="pageNext()" *ngIf="pageNumber < (totalPages-1)">Next</a></li>
+            <li class="page-item"><a class="page-link" (click)="pageLast()" *ngIf="pageNumber < (totalPages-2)">Last</a></li>
+        </ul>
+    </nav>
+    <h4 *ngIf='!isLoading' style="text-align: center; padding-top: 40px; font-style: italic;">{{ totalPages + 1 }} Pages Found with {{ totalElements }} Total Entries</h4>
 </div>
