@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Inventory } from '../models/Inventory';
-import { JWT, BASE_API_URL } from '../models/globalConstants';
+import { CurrentEmployee, BASE_API_URL } from '../models/globalConstants';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -76,7 +76,7 @@ export class InventoryService {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
-      'Authorization': 'Bearer '.concat(JWT.currentJWT)
+      'Authorization': 'Bearer '.concat(CurrentEmployee.currentJWT)
     };
 
     const requestOptions = {

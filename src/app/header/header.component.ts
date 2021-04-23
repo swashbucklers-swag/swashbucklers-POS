@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit , OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
-
+import {CurrentEmployee} from '../models/globalConstants';
 
 
 
@@ -11,14 +11,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy{
+
+  public employeeName: String;
+  public todayDate: Date;
+
+  ngOnInit(){
+    CurrentEmployee.employeeLoggedIn.subscribe(emp => {
+      this.employeeName = emp.firstName + " " + emp.lastName;
+      this.todayDate = new Date();
+    })
+  }
+
+  ngOnDestroy(){
+    CurrentEmployee.employeeLoggedIn.unsubscribe();
+  }
 
   constructor(private router: Router){}
+
+  logoutMethod(){
+    this.employeeName = "";
+    CurrentEmployee.currentJWT="";
+    this.router.navigate(['/swashbucklers/']);
+  }
 
   redirect(element: HTMLElement){
      switch(element.getAttribute("name")){
        case "home":{
-        this.router.navigate(['/swashbucklers/']);
+        this.router.navigate(['/swashbucklers/landing-page']);
         break;
        }
        case "orders":{
@@ -33,16 +53,18 @@ export class HeaderComponent {
         //this.router.navigate(['/employees/show']);
         break;
       }
-      case "clock":{
+      case "clockInOut":{
         this.router.navigate(['/clock-in-out']);
         break;
       }
+      case "timesheets":{
+        this.router.navigate(['/timesheets']);
+        break;
+      }
+      case "logout":{
+        this.router.navigate(['/swashbucklers/']);
+      }
      }
-
-
-
-
-
   }
 
 }

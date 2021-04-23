@@ -38,6 +38,7 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
 import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {MatRadioModule} from '@angular/material/radio';
     LocationComponent,
     EmployeeListComponent,
     InventoryItemComponent,
-    AddInventoryComponent
+    AddInventoryComponent,
+    ClockComponent
 
   ],
   //you have to import and export here so angular knows you want to use it

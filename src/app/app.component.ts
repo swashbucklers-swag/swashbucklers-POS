@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,10 +10,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 
-  // constructor (private router: Router) {
-  //   this.router.navigate(['/swashbucklers']);
-  // }
-
-  // this.router.navigate(['/swashbucklers/landing-page']);
+  constructor (private router: Router) {
+    //this.router.navigate(['/swashbucklers']);
+  }
 
 }
