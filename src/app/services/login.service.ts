@@ -21,6 +21,7 @@ export class LoginService {
     return this.http.post<JSONWebToken>(fullUrl, {'username': email, 'password': password}).toPromise().then(data => {
       CurrentEmployee.currentJWT = data.jwt;
       CurrentEmployee.employeeLoggedIn.next(data.employee);
+      localStorage.setItem('swagjwt', data.jwt);
       return true;
 
     }).catch(exception => {
