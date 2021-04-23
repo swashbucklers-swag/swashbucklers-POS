@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BASE_API_URL, environment, JWT } from 'src/environments/environment';
+import { BASE_API_URL} from 'src/environments/environment';
 import { Customer } from './customer';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class CustomerService {
     
     httpHeaders: HttpHeaders = new HttpHeaders({
       "Content-Type": 'application/json',
-      "Authorization": 'Bearer '.concat(JWT.currentJWT)
+      "Authorization": 'Bearer '.concat(localStorage.getItem('swagjwt'))
     });
   
     private apiServerUrl = BASE_API_URL;

@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { JWT } from 'src/environments/environment';
 import{Customer} from './customer';
 import{CustomerService} from './customer.service';
 import { Router } from '@angular/router';
@@ -28,7 +27,6 @@ export class CustomersComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
-        console.log(JWT.currentJWT);
       }
     );
   }
