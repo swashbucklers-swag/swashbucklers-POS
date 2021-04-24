@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Order } from 'src/app/models/order';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -8,18 +8,11 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-
-  orders: Order[] = [];
-  orderService:OrderService;
+  @Input() order:Order;
   editVisible:boolean = false;
-  customerId : number = 0;
 
-  page : {
-    pageNumber: number;
-    pageOffeset: number;
-    sortBy: string;
-    order: string;
-  }
+  orderService:OrderService;
+  customerId : number = 0;
 
   constructor(orderService: OrderService) {
     this.orderService = orderService;
@@ -32,16 +25,11 @@ export class OrderListComponent implements OnInit {
 
   getAllOrders() {
 
-    this.orderService.getOrders().then(order => this.orders = order.content);
-  }
-
-  getAllOrdersPagination() {
-
-    this.orderService.getOrdersPaginate(this.page.pageNumber-1, this.page.pageOffeset, this.page.sortBy, this.page.order).then(order => this.orders = order.content);
+    this.orderService.getOrders().then(order => this.order = order.content);
   }
 
 
-  toggleViewCustomerOrders() {
+  toggleEditInfo() {
     this.editVisible = !this.editVisible;
   }
 

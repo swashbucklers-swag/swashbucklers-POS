@@ -31,10 +31,11 @@ export class OrderService {
     create.subscribe();
   }
 
-  getOrdersPaginate(pageNumber:number, pageOffset:number, sortBy:string, order:string):Promise<any>{
+  getOrders(pageSize:number = 25, pageNumber:number = 0):Promise<any>{
 
     const headerInfo = {
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
       'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
@@ -42,21 +43,7 @@ export class OrderService {
       headers: new HttpHeaders(headerInfo)
     };
 
-    return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl)+'?page='+pageNumber+'&offset='+pageOffset+'&sortby='+sortBy+'&order='+order, requestOptions).toPromise();
-  }
-
-  getOrders():Promise<any>{
-
-    const headerInfo = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-    };
-
-    const requestOptions = {
-      headers: new HttpHeaders(headerInfo)
-    };
-
-    return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
+    return this.http.get<any>(BASE_API_URL.concat(`/order/all?offset=${pageSize}&page=${pageNumber}`), requestOptions).toPromise();
   }
 
   // getCustomers(): Promise<any> {
