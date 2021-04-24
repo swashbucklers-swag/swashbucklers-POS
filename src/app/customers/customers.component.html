@@ -1,0 +1,6 @@
+<h1 style="text-align: center;">Customer Management</h1>
+<button class="btn btn-success" style="background-color: rgb(0, 84%, 44%); color:#eeebdd; float: right"
+  (click)="onClickAdd();">Add Customer</button>
+<div *ngFor="let c of customers" [customer]="customer" style="padding-bottom: 5px; text-align: center;">
+  <app-customer [customer]="c"></app-customer>
+</div>

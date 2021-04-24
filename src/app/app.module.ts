@@ -28,7 +28,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component'
-import { HttpClientModule } from '@angular/common/http';
 import { EmployeeService } from './services/employee.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
@@ -44,6 +43,12 @@ import { InventoryItemComponent } from './inventory/inventory-item/inventory-ite
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CustomerComponent } from './customers/customer/customer.component';
+
 
 @NgModule({
   declarations: [
@@ -64,6 +69,9 @@ import { MatSortModule } from '@angular/material/sort';
     OrderListComponent,
     AddInventoryComponent,
     InventoryItemComponent,
+    AddCustomerComponent,
+    CustomerComponent
+
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [
@@ -84,6 +92,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
