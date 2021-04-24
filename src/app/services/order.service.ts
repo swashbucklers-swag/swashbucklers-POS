@@ -59,18 +59,32 @@ export class OrderService {
     return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
   }
 
-  getOrdersByCustomerService(customerId:number):Promise<any> {
-    const headerInfo = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-    };
+  // getCustomers(): Promise<any> {
 
-    const requestOptions = {
-      headers: new HttpHeaders(headerInfo)
-    };
+  //   const headerInfo = {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+  //   };
 
-    return this.http.get<Order[]>(BASE_API_URL.concat(this.UrlFindByCustomerId)+customerId, requestOptions).toPromise();
-  }
+  //   const requestOptions = {
+  //     headers: new HttpHeaders(headerInfo)
+  //   };
+
+  //   return this.http.get<Customer[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
+  // }
+
+  // getOrdersByCustomerService(customerId:number):Promise<any> {
+  //   const headerInfo = {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+  //   };
+
+  //   const requestOptions = {
+  //     headers: new HttpHeaders(headerInfo)
+  //   };
+
+  //   return this.http.get<Order[]>(BASE_API_URL.concat(this.UrlFindByCustomerId)+customerId, requestOptions).toPromise();
+  // }
 }
 
 

@@ -45,11 +45,11 @@ export class OrderListComponent implements OnInit {
     this.editVisible = !this.editVisible;
   }
 
-  getOrdersByCustomer(customerId:number){
-    this.orderService.getOrdersByCustomerService(customerId).then(order => this.orders = order.content);
-  }
+  // getOrdersByCustomer(customerId:number){
+  //   this.orderService.getOrdersByCustomerService(customerId).then(order => this.orders = order.content);
+  // }
 
-  processResult() {
+  // processResult() {
     // return order => {
     //   this.orders = order.content;
     //   this.page.pageSize = order.content.pageable.pageSize;
@@ -57,6 +57,6 @@ export class OrderListComponent implements OnInit {
     //   this.page.totalElements = order.content.totalElements;
     //   this.page.pageNumber = order.content.number + 1;
     // }
-  }
+  // }
 
 }

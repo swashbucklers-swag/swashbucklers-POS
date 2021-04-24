@@ -10,3 +10,6 @@ export class Customer {
     location: Location;
     
 }
+
+
+// Get by Customer in a Modal by Phone Number 

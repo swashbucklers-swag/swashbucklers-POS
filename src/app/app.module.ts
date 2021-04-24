@@ -20,12 +20,12 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { CustomersComponent } from './customers/customers.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component'
 import { HttpClientModule } from '@angular/common/http';
@@ -51,7 +51,6 @@ import { MatSortModule } from '@angular/material/sort';
     AppComponent,
     HeaderComponent,
     CreateUserComponent,
-    CustomersComponent,
     InventoryComponent,
     LoginComponent,
     DashboardComponent,
@@ -65,7 +64,6 @@ import { MatSortModule } from '@angular/material/sort';
     OrderListComponent,
     AddInventoryComponent,
     InventoryItemComponent,
-
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [
@@ -78,6 +76,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatProgressSpinnerModule,
     FormsModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,

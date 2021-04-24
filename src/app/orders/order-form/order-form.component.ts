@@ -63,6 +63,7 @@ export class OrderFormComponent implements OnInit {
     }
     if (this.createOrder.customerId < 0) {
       alert("Invalid customerId, please enter a positive value")
+      return;
     }
     alert("Order for has been submitted for processing")
     this.isLoading = true;
@@ -71,6 +72,10 @@ export class OrderFormComponent implements OnInit {
     this.router.navigate(['/orders']);
     form.resetForm();
     this.isLoading = false;
+  }
+
+  getCustomers(){
+    
   }
 
   // listItems(): void {
