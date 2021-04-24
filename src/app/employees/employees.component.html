@@ -1,0 +1,100 @@
+<div class="clearfix">
+    <nav class="navbar-brand float-start">Manage Employee's</nav>
+</div>
+
+<div><br></div>
+
+<nav class="navbar navbar-expand navbar-ligt bg-light">
+
+    <div class="col nav-item-active" >
+        <a class="navbar-brand button" (click)="openModal(null,'Add')">Add Employee</a>
+    </div>
+
+    <div class="col"></div>
+
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Search Employees" aria-label="uptosomething">
+    </div>
+</nav>
+
+
+<br>
+
+
+<div class="row" id="main-spot">
+    <div class="clearfix">
+        <div >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><span>Employee</span></th>
+                        <th ><span>Rank</span></th>
+                        <th><span>Email</span></th>
+                        <th><span>Phone</span></th>
+                        <th><span>ID</span></th>
+                        <th><span>Location</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees" class="clearfix" >
+                        <td><span>{{employee.firstName}} {{employee.lastName}}</span></td>
+                        <td ><span>{{employee.rank}}</span></td>
+                        <td><span>{{employee.email}}</span></td>
+                        <td><span>{{employee.phoneNumber}}</span></td>
+                        <td><span>{{employee.employeeId}}</span></td>
+                        <td><span>{{employee.location}}</span></td>
+                        <td>
+                          <button type="button" class="mat-form-field" (click)="openModal(employee, 'Edit')">Edit</button>
+                        </td>
+                        <td>
+                          <button type="text" style="display: none"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Add Employee Modal-->
+<div class="modal fade" id="AddEmployee" tabindex="-1" aria-labelledby="AddEmployeeLabel" aria-hidden="true">
+ <app-add-employee></app-add-employee>
+</div>
+
+
+<div class="modal fade" id="EditEmployee" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
+        <app-edit-employee ></app-edit-employee>
+</div>
+
+<!--<form #addForm="ngForm" (ngSubmit)="addEmployee(addForm)">-->
+<!--  <div class="form-group">-->
+<!--    <label for="firstName">First Name</label>-->
+<!--    <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="First" required>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="lastName">Last Name</label>-->
+<!--    <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last" required>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="rank">Rank</label>-->
+<!--    <input type="text" ngModel name="rank" class="form-control" id="rank" placeholder="Rank" required>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="email">Email Address</label>-->
+<!--    <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="phone">Phone</label>-->
+<!--    <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="location"></label>-->
+<!--    <input type="text" ngModel name="location" class="form-control" id="location">-->
+<!--  </div>-->
+<!--  <div class="modal-footer">-->
+<!--    <button type="button" id="add-employee-form" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>-->
+<!--  </div>-->
+<!--</form>-->

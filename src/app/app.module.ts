@@ -1,17 +1,17 @@
-//Default imports
+// Default imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-//These import is for routing
+// These import is for routing
 import { AppRoutingModule } from './app-routing.module';
 
-//Imported by angular material
+// Imported by angular material
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-//The name of our default/main component that we will work on
+// The name of our default/main component that we will work on
 import { AppComponent } from './app.component';
 
-//Other components that we create
+// Other components that we create
 import {CreateUserComponent} from './users/createUsers/create-user.component';
 import {HeaderComponent} from './header/header.component';
 import {CustomersComponent} from './customers/customers.component';
@@ -30,6 +30,10 @@ import {InventoryItemComponent} from './inventory/inventory-item/inventory-item.
 import {AddInventoryComponent} from './inventory/add-inventory/add-inventory.component';
 import {CustomerComponent} from './customers/customer/customer.component';
 import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderFormComponent } from './orders/order-form/order-form.component';
+import { OrderListComponent } from './orders/order-list/order-list.component';
+
 
 //Custom imports
 import {FormsModule} from "@angular/forms";
@@ -39,12 +43,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { OrdersComponent } from './orders/orders.component';
-import { OrderFormComponent } from './orders/order-form/order-form.component';
-import { OrderListComponent } from './orders/order-list/order-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -56,7 +57,7 @@ import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
-    //here we are going to declare all our components
+    // here we are going to declare all our components
     AppComponent,
     HeaderComponent,
     CreateUserComponent,
@@ -75,7 +76,9 @@ import { DatePipe } from '@angular/common';
     InventoryItemComponent,
     AddCustomerComponent,
     CustomerComponent,
-    TimesheetComponent
+    TimesheetComponent,
+    ClockComponent,
+    CustomersComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
@@ -101,7 +104,7 @@ import { DatePipe } from '@angular/common';
     MatSelectModule,
     MatFormFieldModule
   ],
-  //It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
+  // It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
     BrowserModule,
     AppRoutingModule,

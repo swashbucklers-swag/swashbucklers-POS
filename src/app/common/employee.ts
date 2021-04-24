@@ -1,3 +1,5 @@
+import { Location } from './location';
+
 export class Employee {
   employeeId: number;
   firstName: String;
@@ -5,5 +7,5 @@ export class Employee {
   email: String;
   phoneNumber: String;
   location: Location;
-  rank: String;
+  rank: string;
 }

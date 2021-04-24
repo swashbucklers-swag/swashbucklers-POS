@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Inventory } from '../models/Inventory'
-import { InventoryService } from '../services/inventory.service'
+import { Inventory } from '../models/Inventory';
+import { InventoryService } from '../services/inventory.service';
 
 @Component({
   selector: 'app-inventory',
@@ -9,9 +9,9 @@ import { InventoryService } from '../services/inventory.service'
 })
 export class InventoryComponent implements OnInit {
 
-  inventory:Inventory[];
-  inventoryService:InventoryService;
-  isLoading:boolean = true;
+  inventory: Inventory[];
+  inventoryService: InventoryService;
+  isLoading = true;
 
   pageSizeOptions:number[] = [5, 10, 25, 50, 100];
 
@@ -26,7 +26,7 @@ export class InventoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.refreshInventory()
+    this.refreshInventory();
   }
 
   setPageSize(event: any){
@@ -72,7 +72,7 @@ export class InventoryComponent implements OnInit {
         this.totalElements = inv.totalElements;
       });
     } catch (exception){
-      alert("Failed to load inventory!\n\nIf this issue persists, contact your system administrator.")
+      alert('Failed to load inventory!\n\nIf this issue persists, contact your system administrator.');
     }
     this.isLoading = false;
   }

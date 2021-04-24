@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
 import { OrderFormComponent } from './orders/order-form/order-form.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'allOrders', component: OrderListComponent},
   { path: 'customers', component: CustomerComponent},
   { path: 'customers/add', component: AddCustomerComponent},
+  { path: 'employees', component: EmployeesComponent },
   { path: 'inventory/manage', component: InventoryComponent}
 ];
 

@@ -2,12 +2,17 @@
   "name": "swashbucklers",
   "version": "0.0.0",
   "scripts": {
+<<<<<<< HEAD
     "postinstall": "ngcc",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+=======
+    "start": "ng serve",
+    "postinstall": "ngcc"
+>>>>>>> origin/devNick
   },
   "private": true,
   "dependencies": {
@@ -25,7 +30,7 @@
     "angular-in-memory-web-api": "^0.11.0",
     "cors": "^2.8.5",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.2.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {

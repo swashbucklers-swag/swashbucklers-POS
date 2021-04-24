@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment} from 'src/environments/environment';
 import { Employee } from '../common/employee';
 
 @Injectable({
@@ -9,28 +10,31 @@ import { Employee } from '../common/employee';
 })
 export class EmployeeService {
 
-  private baseUrl = 'http://localhost:9009/employee/all';
-  // private newUrl = 'http://localhost:9009/employee/email?email=cami4@mail.com';
+  private apiServerUrl = environment.apiBaseUrl;
+  private token = localStorage.getItem('swagjwt');
 
   constructor(private httpClient: HttpClient) { }
 
 
-  getEmployeeList(): Observable<Employee[]> {
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
-      map(response => response.content.employees)
-    );
+  getEmployeeList(): Promise<any> {
+    return this.httpClient.get(`${this.apiServerUrl}/employee/all`,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
   }
 
-  // getOneEmployee(): Observable<Employee> {
-  //   return this.httpClient.get<GetResponse>(this.newUrl).pipe(
-  //     map(response => response.content.employee)
-  //   );
-  // }
+  addEmployee(value: any): Observable<any> {
+    return this.httpClient.post(`${this.apiServerUrl}/employee/create`,
+      value,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}});
+  }
+
+  updateEmployee(value: any): Observable<any> {
+    return this.httpClient.put(`${this.apiServerUrl}/employee/update`,
+      value,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}});
+  }
+
+
+
 }
 
-interface GetResponse {
-  content: {
-    employees: Employee[];
-    // employee: Employee;
-  }
-}
+

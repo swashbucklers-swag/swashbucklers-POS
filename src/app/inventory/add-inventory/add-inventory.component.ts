@@ -21,7 +21,7 @@ export class AddInventoryComponent implements OnInit {
     quantity:0
   }
 
-  constructor(private inventoryService:InventoryService) {}
+  constructor(private inventoryService: InventoryService) {}
 
   ngOnInit(): void {
   }
@@ -31,8 +31,9 @@ export class AddInventoryComponent implements OnInit {
     this.newInventory.discount = Math.floor(this.newInventory.discount);
     this.newInventory.price = Math.round((this.newInventory.price + Number.EPSILON) * 100) / 100;
 
-    if(this.newInventory.name.length == 0 || this.newInventory.description.length == 0 || this.newInventory.price <= 0 || this.newInventory.discount < 0 || this.newInventory.discount >= 100 || this.newInventory.quantity < 0){
-      alert("Failed to add new inventory. One or more fields are formatted incorrectly.")
+
+    if (this.newInventory.name.length == 0 || this.newInventory.description.length == 0 || this.newInventory.price <= 0 || this.newInventory.discount < 0 || this.newInventory.discount >= 100 || this.newInventory.quantity < 0){
+      alert('Failed to add new inventory. One or more fields are formatted incorrectly.');
 
     } else {
 
@@ -43,7 +44,7 @@ export class AddInventoryComponent implements OnInit {
         })
 
       } catch (exception) {
-        alert("Failed to add new Inventory Entry! Ensure inventory item is formatted correctly.");
+        alert('Failed to add new Inventory Entry! Ensure inventory item is formatted correctly.');
       }
     }
   }
