@@ -43,7 +43,7 @@ export class InventoryService {
   }
 
   //in development, api call with jwt header to get inventory
-  getInventory():Promise<any>{
+  getInventory(pageSize:number = 25, pageNumber:number = 0):Promise<any>{
 
     const headerInfo = {
       'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export class InventoryService {
       headers: new HttpHeaders(headerInfo)
     };
 
-    return this.http.get<any>(BASE_API_URL.concat("/inventory/all"), requestOptions).toPromise();
+    return this.http.get<any>(BASE_API_URL.concat(`/inventory/all?offset=${pageSize}&page=${pageNumber}`), requestOptions).toPromise();
   }
 
   addInventory(inventory:Inventory):Promise<any>{
