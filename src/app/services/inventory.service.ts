@@ -55,7 +55,7 @@ export class InventoryService {
       headers: new HttpHeaders(headerInfo)
     };
 
-    return this.http.get<any>(BASE_API_URL.concat("/inventory/all"), requestOptions).toPromise();
+    return this.http.get<any>(BASE_API_URL.concat(`/inventory/all?offset=${pageSize}&page=${pageNumber}`), requestOptions).toPromise();
   }
 
   addInventory(inventory:Inventory):Promise<any>{

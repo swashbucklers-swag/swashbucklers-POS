@@ -12,6 +12,10 @@ export class InventoryComponent implements OnInit {
   inventory:Inventory[];
   inventoryService:InventoryService;
   isLoading:boolean = true;
+
+  pageSizeOptions:number[] = [5, 10, 25, 50, 100];
+
+  //pagination information
   pageNumber:number = 0;
   pageSize:number = 25;
   totalPages:number;
@@ -23,6 +27,14 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshInventory()
+  }
+
+  setPageSize(event: any){
+    this.pageSize = parseInt(event.target.value, 10);
+  }
+
+  setPagination(){
+    this.refreshInventory();
   }
 
   pageFirst(){
