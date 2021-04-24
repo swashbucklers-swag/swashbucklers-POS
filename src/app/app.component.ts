@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentEmployee } from './models/globalConstants';
 
 
 @Component({
@@ -11,6 +12,7 @@ export class AppComponent {
 
 
   constructor (private router: Router) {
+    CurrentEmployee.employeeLoggedIn.next(localStorage.getItem('swagEmpName'));
     //this.router.navigate(['/swashbucklers']);
   }
 

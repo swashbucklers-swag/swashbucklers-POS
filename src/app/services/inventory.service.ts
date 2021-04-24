@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Inventory } from '../models/Inventory';
-import { CurrentEmployee, BASE_API_URL } from '../models/globalConstants';
+import { BASE_API_URL } from '../models/globalConstants';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({

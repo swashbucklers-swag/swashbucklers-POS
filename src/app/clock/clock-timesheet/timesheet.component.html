@@ -1,0 +1,25 @@
+<div class="" name="employeeRows" style="border-bottom: 1px solid #ccc;" >
+  <div class="row mb-2 mb-sm-0">
+    <div class="col-1" >{{timesheet.employee.employeeId}}</div>
+    <div class="col-2">{{timesheet.employee.firstName}}</div>
+    <div class="col-2">{{timesheet.employee.lastName}}</div>
+    <div class="col-1">{{timesheet.timesheetId}}</div>
+    <div class="col-2">{{timesheet.clockIn}}</div>
+    <div class="col-2">{{timesheet.clockOut}}</div>
+    <div class="col-2"><button (click)="toggleEditInfo()" class="btn btn-warning">Edit</button></div>
+  </div>
+  <div class="row">
+    <form *ngIf="editVisible" action="" class="form-horizontal" (submit)="saveInfo(postForm)" #postForm="ngForm">
+      <div class="form-control">
+        <div class="input-group" >
+          <div class="col-6" ></div>
+          <input [(ngModel)]="timesheet.clockIn" class="form-control" type="text" name="clockIn" required >
+          <input [(ngModel)]="timesheet.clockOut" class="form-control" type="text" name="clockOut" required style="margin-left: 10px;">
+          <button type="submit" class="btn btn-primary" style="float: right; margin-left: 10px;">Save Info</button>
+          <div class="col-1" ></div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

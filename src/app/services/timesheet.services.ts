@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
 import { Login } from "../common/login";
-import { BASE_API_URL, CurrentEmployee } from "../models/globalConstants";
+import { BASE_API_URL } from "../models/globalConstants";
+import { DatePipe } from "@angular/common";
 
 
 @Injectable({ providedIn: "root" })
 export class TimesheetServices{
 
-  constructor(private http: HttpClient, private router: Router){ }
+  constructor(private http: HttpClient, private datePipe: DatePipe){ }
 
   async clockIn(email: string, password: string, type : string): Promise<any>{
     let login = new Login();
@@ -30,7 +30,7 @@ export class TimesheetServices{
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       //'Access-Control-Allow-Headers': 'Content-Type',
-      'Authorization': 'Bearer '.concat("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJibGFja3BlYXJsQHN3YWdlcnMuY29tIiwiaWF0IjoxNjE5MTkwNDIxLCJleHAiOjE2MTkyMjY0MjF9.2Yg0siNEIsUezVZNzS3bi1gM1H46V-aRGYUtht6oGTk")
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
     let optParams: string = "";
 
@@ -42,6 +42,21 @@ export class TimesheetServices{
     }
 
     return await this.http.get(BASE_API_URL+"/employee/clock/all"+optParams,{headers:headerInfo}).toPromise();
+  }
+
+  async updateTimesheet(timesheetId: number, newClockIn: string, newClockOut: string){
+    const headerInfo = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      //'Access-Control-Allow-Headers': 'Content-Type',
+      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
+    };
+
+    newClockIn = this.datePipe.transform(new Date(newClockIn),'yyyy-MM-dd hh:mm:ss' );
+    newClockOut = this.datePipe.transform(new Date(newClockOut),'yyyy-MM-dd hh:mm:ss' );
+
+
+    return await this.http.put(BASE_API_URL+"/employee/clock/update",{timesheetId:timesheetId,clockIn: newClockIn, clockOut: newClockOut},{headers:headerInfo}).toPromise();
   }
 
 

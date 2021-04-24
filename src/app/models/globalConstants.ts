@@ -10,6 +10,5 @@ export const BASE_API_URL:string = 'http://127.0.0.1:9090';
   //Authorization: Bearer [header].[payload].[signature]
   //Authorization: Bearer JWT.currentJWT
 export class CurrentEmployee {
-    public static currentJWT:string = '';
-    public static employeeLoggedIn: Subject<Employee> = new Subject<Employee>();
+    public static employeeLoggedIn: Subject<String> = new Subject<String>();
 }

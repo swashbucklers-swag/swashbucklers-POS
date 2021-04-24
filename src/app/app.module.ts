@@ -14,6 +14,22 @@ import { AppComponent } from './app.component';
 //Other components that we create
 import {CreateUserComponent} from './users/createUsers/create-user.component';
 import {HeaderComponent} from './header/header.component';
+import {CustomersComponent} from './customers/customers.component';
+import {InventoryComponent} from './inventory/inventory.component';
+import {LoginComponent} from './login/login.component'
+import {EmployeeService} from './services/employee.service';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {ClockinClockoutComponent} from './clockin-clockout/clockin-clockout.component';
+import {ClockComponent} from './clock/clock.component';
+import {TimesheetComponent} from './clock/clock-timesheet/timesheet.component';
+import {MainLandingPageComponent} from './main-landing-page/main-landing-page.component';
+import {EmployeesComponent} from './employees/employees.component';
+import {LocationComponent} from './location/location.component';
+import {EmployeeListComponent} from './employees/employee-list/employee-list.component';
+import {InventoryItemComponent} from './inventory/inventory-item/inventory-item.component';
+import {AddInventoryComponent} from './inventory/add-inventory/add-inventory.component';
+import {CustomerComponent} from './customers/customer/customer.component';
+import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
 
 //Custom imports
 import {FormsModule} from "@angular/forms";
@@ -24,26 +40,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ReactiveFormsModule} from '@angular/forms';
-import { CustomersComponent } from './customers/customers.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { LoginComponent } from './login/login.component'
-import { EmployeeService } from './services/employee.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ClockinClockoutComponent } from './clockin-clockout/clockin-clockout.component';
-import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { LocationComponent } from './location/location.component';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import { InventoryItemComponent } from './inventory/inventory-item/inventory-item.component';
-import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import {MatRadioModule} from '@angular/material/radio';
-import { ClockComponent } from './clock/clock.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { HttpClientModule } from '@angular/common/http';
-import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { CustomerComponent } from './customers/customer/customer.component';
+import {HttpClientModule} from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {DatePipe} from '@angular/common';
+
+
+
+
+
 
 
 @NgModule({
@@ -65,7 +72,8 @@ import { CustomerComponent } from './customers/customer/customer.component';
     AddInventoryComponent,
     ClockComponent,
     AddCustomerComponent,
-    CustomerComponent
+    CustomerComponent,
+    TimesheetComponent
 
   ],
   //you have to import and export here so angular knows you want to use it
@@ -107,7 +115,7 @@ import { CustomerComponent } from './customers/customer/customer.component';
   entryComponents: [
     CreateUserComponent
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

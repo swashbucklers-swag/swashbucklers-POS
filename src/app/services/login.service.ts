@@ -18,9 +18,9 @@ export class LoginService {
     let fullUrl = BASE_API_URL.concat(this.url)
 
     return this.http.post<JSONWebToken>(fullUrl, {'username': email, 'password': password}).toPromise().then(data => {
-      CurrentEmployee.currentJWT = data.jwt;
-      CurrentEmployee.employeeLoggedIn.next(data.employee);
       localStorage.setItem('swagjwt', data.jwt);
+      localStorage.setItem('swagEmpName',data.employee.firstName + " " + data.employee.lastName);
+      CurrentEmployee.employeeLoggedIn.next(localStorage.getItem('swagEmpName'));
       return true;
 
     }).catch(exception => {

@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   ngOnInit(){
     CurrentEmployee.employeeLoggedIn.subscribe(emp => {
-      this.employeeName = emp.firstName + " " + emp.lastName;
+      this.employeeName = emp.toString();
+      console.log("Employee name: " + this.employeeName);
       this.todayDate = new Date();
     })
   }
@@ -30,8 +31,9 @@ export class HeaderComponent implements OnInit, OnDestroy{
   constructor(private router: Router){}
 
   logoutMethod(){
-    this.employeeName = "";
-    CurrentEmployee.currentJWT="";
+    this.employeeName="";
+    localStorage.removeItem('swagEmpName');
+    localStorage.removeItem('swagjwt');
     this.router.navigate(['/swashbucklers/']);
   }
 
@@ -42,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         break;
        }
        case "orders":{
-        //this.router.navigate(['/employees/show']);
+        this.router.navigate(['/employees/show']);
         break;
        }
        case "employees":{
@@ -50,7 +52,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         break;
       }
       case "locations":{
-        //this.router.navigate(['/employees/show']);
+        this.router.navigate(['/employees/show']);
         break;
       }
       case "clockInOut":{
