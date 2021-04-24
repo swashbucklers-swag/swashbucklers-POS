@@ -1,4 +1,4 @@
-import { Location } from './location';
+import { Location } from '../models/location';
 
 export class Employee {
   employeeId: number;

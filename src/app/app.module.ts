@@ -40,6 +40,7 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -102,7 +103,8 @@ import { DatePipe } from '@angular/common';
     MatSortModule,
     HttpClientModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatRadioModule
   ],
   // It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
@@ -116,7 +118,8 @@ import { DatePipe } from '@angular/common';
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatRadioModule
 
   ],
   entryComponents: [
