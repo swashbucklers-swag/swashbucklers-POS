@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../common/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
-import {EditEmployeeComponent} from './edit-employee/edit-employee.component';
 
 @Component({
   selector: 'app-employees',
@@ -13,7 +11,7 @@ import {EditEmployeeComponent} from './edit-employee/edit-employee.component';
 export class EmployeesComponent implements OnInit {
 
   public employees: Employee[];
-  public editEmployee: EditEmployeeComponent;
+  public editingEmployee: Employee;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -70,7 +68,7 @@ export class EmployeesComponent implements OnInit {
         button.setAttribute('data-bs-target', '#AddEmployee');
         break;
       case 'Edit':
-        this.editEmployee.editEmployee = modalEmployee;
+        this.editingEmployee = modalEmployee;
         button.setAttribute('data-bs-target', '#EditEmployee');
         break;
     }

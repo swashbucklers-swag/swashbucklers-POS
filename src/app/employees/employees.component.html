@@ -45,10 +45,10 @@
                         <td><span>{{employee.location}}</span></td>
                         <td>
 <!--                          <button type="button" class="" (click)="openModal(employee, 'Edit')">Edit</button>-->
-                          <img type="button" src="favicon.ico" (click)="openModal(employee,'Edit')">
+                          <button  (click)="openModal(employee,'Edit')"><img src="edit-box.ico" alt="Edit"></button>
                         </td>
                         <td>
-                          <button type="text" style="display: none"></button>
+                          <button style="display: none"></button>
                         </td>
                     </tr>
                 </tbody>
@@ -66,7 +66,7 @@
 
 
 <div class="modal fade" id="EditEmployee" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
-        <app-edit-employee ></app-edit-employee>
+        <app-edit-employee [editEmployee]="editingEmployee"></app-edit-employee>
 </div>
 
 <!--<form #addForm="ngForm" (ngSubmit)="addEmployee(addForm)">-->

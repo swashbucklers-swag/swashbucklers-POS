@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Employee} from '../../common/employee';
 import {EmployeesComponent} from '../employees.component';
 import {NgForm} from '@angular/forms';
@@ -10,7 +10,7 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./edit-employee.component.css']
 })
 export class EditEmployeeComponent implements OnInit {
-  editEmployee: Employee;
+  @Input() editEmployee: Employee;
 
   constructor(public boss: EmployeesComponent) {}
 
@@ -19,6 +19,6 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   updateEmployee(employee: Employee): void {
-    alert('Why you tryin ta edit ' + this.editEmployee.firstName + ' ' + this.editEmployee.lastName);
+    this.boss.updateEmployee(employee);
   }
 }
