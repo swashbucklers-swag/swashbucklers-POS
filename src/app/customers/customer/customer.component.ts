@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {CustomerService} from '../customer.service';
-import { Customer } from '../customer';
+import {CustomerService} from '../../services/customer.service';
+import { Customer } from './customer';
 import { STATES } from '../state';
 
 @Component({

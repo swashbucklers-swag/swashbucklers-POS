@@ -5,10 +5,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainLandingPageComponent } from './main-landing-page/main-landing-page.component';
+import { OrderFormComponent } from './orders/order-form/order-form.component';
+import { OrderListComponent } from './orders/order-list/order-list.component';
+import { OrdersComponent } from './orders/orders.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
-import { ClockComponent } from './clock/clock.component';
-import {CustomersComponent} from './customers/customers.component';
+import {CustomerComponent} from './customers/customer/customer.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 
 const routes: Routes = [
@@ -19,10 +21,12 @@ const routes: Routes = [
   { path: 'clock-in-out', component: ClockinClockoutComponent},
   { path: 'swashbucklers/landing-page', component: MainLandingPageComponent},
   { path: 'employees/show', component: EmployeeListComponent},
-  { path: 'inventory/manage', component: InventoryComponent},
-  { path: 'timesheets', component: ClockComponent },
-  { path: 'customers', component: CustomersComponent},
-  { path: 'customers/add', component: AddCustomerComponent}
+  { path: 'orders', component: OrdersComponent},
+  { path: 'createOrderForm', component: OrderFormComponent},
+  { path: 'allOrders', component: OrderListComponent},
+  { path: 'customers', component: CustomerComponent},
+  { path: 'customers/add', component: AddCustomerComponent},
+  { path: 'inventory/manage', component: InventoryComponent}
 ];
 
 @NgModule({

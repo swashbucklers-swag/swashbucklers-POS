@@ -1,0 +1,155 @@
+<div class="container">
+  <mat-card>
+    <div class="row">
+      <div class="col-4 extra-space"></div>
+      <div class="col-4 text-center">
+        <h1>Please fill out Order Form</h1>
+      </div>
+    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4 border border-dark p-5 loginBox">
+        <form (submit)="onSubmitForm(postForm)" #postForm="ngForm">
+
+          <div class="row form-group mb-2">
+            <label for="customerId">Customers Identification Number</label>
+
+            <input class="form-group" type="number" name="customerId" required [ngModel]="createOrder?.customerId" 
+            placeholder="CustomersId" #customerId="ngModel">
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Search for Customer by Phone number</button>
+          </div>
+
+
+          <div class="row form-group mb-2">
+            <label for="address">Address</label>
+
+            <input class="form-group" type="text" name="address" required [ngModel]="createOrder?.location.address"
+              placeholder="address" #address="ngModel">
+
+          </div>
+          <div class="row form-group mb-2">
+            <label for="city">City</label>
+
+            <input class="form-group" type="text" name="city" required [ngModel]="createOrder?.location.city"
+              placeholder="city" #city="ngModel">
+
+          </div>
+            <div class="row form-group mb-2">
+              <label for="state">State</label>
+              <select name="state" class="form-select" [ngModel]="createOrder?.location.state" #state="ngModel">
+                <option value="">State</option>
+                <option value="AL">AL</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
+              </select>
+
+            </div>
+
+            <div class="row form-group mb-2">
+              <label for="zip"></label>
+
+              <input class="form-group" type="text" name="zip" required [ngModel]="createOrder?.location.zip"
+                placeholder="zip" #zip="ngModel">
+
+            </div>
+          <div class="row form-group mb-2">
+            <label for="itemId"></label>
+
+            <input class="form-group" type="number" name="itemId" required
+              [ngModel]="createOrder?.orderDetailsDTOSet.itemId" placeholder="itemId" #itemId="ngModel">
+
+          </div>
+          <div class="row form-group mb-2">
+            <label for="quantity"></label>
+
+            <input class="form-group" type="number" name="quantity" required
+              [ngModel]="createOrder?.orderDetailsDTOSet.quantity" placeholder="quantity" #quantity="ngModel">
+
+          </div>
+          
+          <div class="row">
+            <button class="btn btn-danger mb-2 ml-0" type="submit">Create Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col extra-space"></div>
+    </div>
+  </mat-card>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

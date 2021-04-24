@@ -36,21 +36,22 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {HttpClientModule} from '@angular/common/http';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {DatePipe} from '@angular/common';
-
-
-
-
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderFormComponent } from './orders/order-form/order-form.component';
+import { OrderListComponent } from './orders/order-list/order-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -59,7 +60,6 @@ import {DatePipe} from '@angular/common';
     AppComponent,
     HeaderComponent,
     CreateUserComponent,
-    CustomersComponent,
     InventoryComponent,
     LoginComponent,
     DashboardComponent,
@@ -68,9 +68,11 @@ import {DatePipe} from '@angular/common';
     EmployeesComponent,
     LocationComponent,
     EmployeeListComponent,
-    InventoryItemComponent,
+    OrdersComponent,
+    OrderFormComponent,
+    OrderListComponent,
     AddInventoryComponent,
-    ClockComponent,
+    InventoryItemComponent,
     AddCustomerComponent,
     CustomerComponent,
     TimesheetComponent
@@ -87,11 +89,14 @@ import {DatePipe} from '@angular/common';
     MatProgressSpinnerModule,
     FormsModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatRadioModule,
-    MatButtonToggleModule,
+    MatAutocompleteModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     HttpClientModule,
     MatSelectModule,
     MatFormFieldModule
@@ -108,7 +113,6 @@ import {DatePipe} from '@angular/common';
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatRadioModule,
     MatButtonToggleModule
 
   ],

@@ -5,12 +5,12 @@ import { Login } from '../models/login';
 import { LoginService } from '../services/login.service'
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   myControl = new FormControl();
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(){
   }
-
+7
   onSaveLogin(form: NgForm){
     if (form.invalid){
       alert("Invalid Email or Password");

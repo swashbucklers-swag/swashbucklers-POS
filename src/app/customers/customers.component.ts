@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import{Customer} from './customer';
-import{CustomerService} from './customer.service';
+import{Customer} from '../models/customer';
+import{CustomerService} from '../services/customer.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class CustomersComponent implements OnInit {
   customers: Customer[];
 
   constructor(private service: CustomerService, private router: Router) {
-   }
+}
 
   ngOnInit(): void {
     this.getCustomers();

@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BASE_API_URL} from 'src/environments/environment';
-import { Customer } from './customer';
+import { Customer } from '../customers/customer/customer';
 
 @Injectable({
   providedIn: 'root'

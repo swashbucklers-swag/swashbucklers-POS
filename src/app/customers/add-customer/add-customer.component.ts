@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {CustomerService} from '../customer.service';
+import {CustomerService} from '../../services/customer.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {STATES} from "../state"
@@ -10,6 +10,7 @@ import {STATES} from "../state"
   templateUrl: './add-customer.component.html',
   styleUrls: ['./add-customer.component.css']
 })
+
 export class AddCustomerComponent implements OnInit {
 
   i = 0;
@@ -35,6 +36,7 @@ selectedState: string;
       password: form.value.password,
       phoneNumber: form.value.phone,
     location: {
+        locationId: 0,
         address: form.value.address,
         city: form.value.city,
         state: form.value.state,

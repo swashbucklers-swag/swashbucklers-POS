@@ -1,4 +1,4 @@
-import { location } from "./location";
+import { Location } from "../../models/location";
 
 export interface Customer {
     customerId: number;
@@ -7,5 +7,5 @@ export interface Customer {
     email: string;
     password: string;
     phoneNumber: string;
-    location: location;
+    location: Location;
   }
