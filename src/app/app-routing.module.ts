@@ -10,7 +10,7 @@ import { OrderListComponent } from './orders/order-list/order-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
-import {CustomersComponent} from './customers/customers.component';
+import {CustomerComponent} from './customers/customer/customer.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent},
   { path: 'createOrderForm', component: OrderFormComponent},
   { path: 'allOrders', component: OrderListComponent},
-  { path: 'customers', component: CustomersComponent},
+  { path: 'customers', component: CustomerComponent},
   { path: 'customers/add', component: AddCustomerComponent},
   { path: 'inventory/manage', component: InventoryComponent}
 ];
