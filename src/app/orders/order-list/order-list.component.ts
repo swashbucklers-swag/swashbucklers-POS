@@ -27,7 +27,7 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit(): any {
     this.getAllOrders();
-    this.getOrdersByCustomer(this.customerId);
+    // this.getOrdersByCustomer(this.customerId);
   }
 
   getAllOrders() {
