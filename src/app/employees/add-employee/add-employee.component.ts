@@ -41,5 +41,7 @@ export class AddEmployeeComponent implements OnInit {
     // addForm.resetForm();
     console.log(newEmployee);
     this.boss.addEmployee(newEmployee);
+    addForm.resetForm();
+
   }
 }

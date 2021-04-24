@@ -11,7 +11,7 @@ import { Employee } from '../common/employee';
 export class EmployeeService {
 
   private apiServerUrl = environment.apiBaseUrl;
-  private token = environment.JWT;
+  private token = localStorage.getItem('swagjwt');
 
   constructor(private httpClient: HttpClient) { }
 
@@ -27,10 +27,10 @@ export class EmployeeService {
       {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}});
   }
 
-  updateEmployee(value: any): Promise<any> {
+  updateEmployee(value: any): Observable<any> {
     return this.httpClient.put(`${this.apiServerUrl}/employee/update`,
       value,
-      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}});
   }
 
 

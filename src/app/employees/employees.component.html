@@ -44,7 +44,7 @@
                         <td><span>{{employee.employeeId}}</span></td>
                         <td><span>{{employee.location}}</span></td>
                         <td>
-                          <button type="button" class="btn btn-secondary btn-sm" (click)="openModal(employee, 'Edit')">Edit</button>
+                          <button type="button" class="mat-form-field" (click)="openModal(employee, 'Edit')">Edit</button>
                         </td>
                         <td>
                           <button type="text" style="display: none"></button>
@@ -65,7 +65,7 @@
 
 
 <div class="modal fade" id="EditEmployee" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
-        <app-edit-employee></app-edit-employee>
+        <app-edit-employee ></app-edit-employee>
 </div>
 
 <!--<form #addForm="ngForm" (ngSubmit)="addEmployee(addForm)">-->

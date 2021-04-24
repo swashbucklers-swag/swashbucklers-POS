@@ -3,6 +3,7 @@ import { Employee } from '../common/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import {EditEmployeeComponent} from './edit-employee/edit-employee.component';
 
 @Component({
   selector: 'app-employees',
@@ -12,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class EmployeesComponent implements OnInit {
 
   public employees: Employee[];
-  public editEmployee: Employee;
+  public editEmployee: EditEmployeeComponent;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -46,7 +47,19 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
-  openModal(employee: Employee, modal: string): void {
+  updateEmployee(editEmpl: Employee): void {
+    this.employeeService.updateEmployee(editEmpl).subscribe(
+      (response: Employee) => {
+        console.log(response);
+        this.listEmployees();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  openModal(modalEmployee: Employee, modal: string): void {
     const container = document.getElementById('main-spot');
     const button = document.createElement('button');
     button.type = 'button';
@@ -57,13 +70,12 @@ export class EmployeesComponent implements OnInit {
         button.setAttribute('data-bs-target', '#AddEmployee');
         break;
       case 'Edit':
+        this.editEmployee.editEmployee = modalEmployee;
         button.setAttribute('data-bs-target', '#EditEmployee');
         break;
     }
     container.appendChild(button);
     button.click();
+    container.removeChild(button);
   }
-
-
-
 }
