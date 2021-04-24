@@ -26,6 +26,8 @@ import {MainLandingPageComponent} from './main-landing-page/main-landing-page.co
 import {EmployeesComponent} from './employees/employees.component';
 import {LocationComponent} from './location/location.component';
 import {EmployeeListComponent} from './employees/employee-list/employee-list.component';
+import {EditEmployeeComponent} from './employees/edit-employee/edit-employee.component';
+import {AddEmployeeComponent} from './employees/add-employee/add-employee.component';
 import {InventoryItemComponent} from './inventory/inventory-item/inventory-item.component';
 import {AddInventoryComponent} from './inventory/add-inventory/add-inventory.component';
 import {CustomerComponent} from './customers/customer/customer.component';
@@ -33,6 +35,7 @@ import {AddCustomerComponent} from './customers/add-customer/add-customer.compon
 import { OrdersComponent } from './orders/orders.component';
 import { OrderFormComponent } from './orders/order-form/order-form.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
+
 
 
 //Custom imports
@@ -79,7 +82,9 @@ import { DatePipe } from '@angular/common';
     CustomerComponent,
     TimesheetComponent,
     ClockComponent,
-    CustomersComponent
+    CustomersComponent,
+    EditEmployeeComponent,
+    AddEmployeeComponent
 
   ],
   //you have to import and export here so angular knows you want to use it

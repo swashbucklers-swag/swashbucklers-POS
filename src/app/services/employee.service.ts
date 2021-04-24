@@ -10,7 +10,7 @@ import { Employee } from '../common/employee';
 })
 export class EmployeeService {
 
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = localStorage.getItem("swagjwt");
   private token = localStorage.getItem('swagjwt');
 
   constructor(private httpClient: HttpClient) { }

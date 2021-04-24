@@ -10,13 +10,8 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-<<<<<<< HEAD
-  employees: Employee[];
-  // employee: Employee;
-=======
   public employees: Employee[];
 
->>>>>>> origin/devNick
 
 
   constructor(private employeeService: EmployeeService) {
@@ -24,7 +19,7 @@ export class EmployeeListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.listEmployees(); 
+    this.listEmployees();
   }
 
 
