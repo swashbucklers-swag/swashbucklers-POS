@@ -2,14 +2,43 @@
     <h3 style="text-align: center; font-size: 48pt; padding-bottom: 12pt; padding-top: 20pt; text-decoration: underline;">Inventory Management</h3>
     <br>
     <h3 style="background-color: #ce1212; text-align: center; color: #FFF; padding-top: 5px; padding-bottom: 5px; font-size: 16pt;">Add New Inventory:</h3>
+<<<<<<< HEAD
+=======
+    <app-add-inventory (addedNewInventory)='refreshInventory()'></app-add-inventory>
+>>>>>>> origin/daniel
     <br>
     <h3 style="background-color: #ce1212; text-align: center; color: #FFF; padding-top: 5px; padding-bottom: 5px; font-size: 16pt;">Browse Inventory:</h3>
     
-    <div *ngIf='isLoading' class="spinner-border text-danger" role="status" style="position: absolute; left: 48.7%;">
+    <div *ngIf='isLoading' class="spinner-border text-danger" role="status" style="position:absolute; left: 49.1%;">
         <span class="sr-only"></span>
     </div>
     
+    <div *ngIf='!isLoading' class="form-row">
+        <label for="itemsPerPage">Items per page: </label>
+        <div class="col-md-5">
+            <select class="custom-select" style="max-width: 100px; float: left;" id="itemsPerPage" (change)="setPageSize($event)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25" selected="true">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <button class="btn btn-secondary" style="float: right;" (click)="setPagination()">Refresh Inventory</button>
+    </div>
+
     <div *ngFor="let i of inventory" [inventory] = "inventory" style="padding-bottom: 5px;">
         <app-inventory-item [inventory] = "i"></app-inventory-item>
     </div>
+
+    <nav aria-label="Page navigation example" style="position:absolute; left: 50%; transform: translate(-50%, 0%);" *ngIf='!isLoading'>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="pageFirst()" *ngIf="pageNumber > 1">First</a></li>
+            <li class="page-item"><a class="page-link" (click)="pagePrevious()" *ngIf="pageNumber > 0">Previous</a></li>
+            <li class="page-item"><a class="page-link" style="color: black; font-weight: bold;">Current Page: {{ pageNumber + 1 }}</a></li>
+            <li class="page-item"><a class="page-link" (click)="pageNext()" *ngIf="pageNumber < (totalPages-1)">Next</a></li>
+            <li class="page-item"><a class="page-link" (click)="pageLast()" *ngIf="pageNumber < (totalPages-2)">Last</a></li>
+        </ul>
+    </nav>
+    <h4 *ngIf='!isLoading' style="text-align: center; padding-top: 40px; font-style: italic;">{{ totalPages }} Page(s) Found with {{ totalElements }} Total Entries</h4>
 </div>

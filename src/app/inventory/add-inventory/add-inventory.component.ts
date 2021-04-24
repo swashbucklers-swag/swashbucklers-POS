@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Inventory } from 'src/app/models/Inventory';
 import { InventoryService } from 'src/app/services/inventory.service';
 
@@ -9,6 +9,8 @@ import { InventoryService } from 'src/app/services/inventory.service';
 })
 
 export class AddInventoryComponent implements OnInit {
+
+  @Output() addedNewInventory = new EventEmitter<boolean>();
 
   newInventory:Inventory = {
     itemId:0,
@@ -37,6 +39,7 @@ export class AddInventoryComponent implements OnInit {
       try {
         await this.inventoryService.addInventory(this.newInventory).then(() => {
           alert("New Inventory Entery Added Successfully!");
+          this.addedNewInventory.emit(true);
         })
 
       } catch (exception) {
