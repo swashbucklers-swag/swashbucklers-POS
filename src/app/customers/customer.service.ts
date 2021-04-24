@@ -21,8 +21,8 @@ export class CustomerService {
         let r = this.http.post(`${this.apiServerUrl}/customer/create`, customer, { headers: this.httpHeaders });
         r.subscribe();
   }
-  getCustomers(): Promise<any> {
-    return this.http.get(`${this.apiServerUrl}/customer/all`, { headers: this.httpHeaders }).toPromise();
+  getCustomers(pageSize:number = 25, pageNumber:number = 0): Promise<any> {
+    return this.http.get(BASE_API_URL.concat(`/customer/all?offset=${pageSize}&page=${pageNumber}`), { headers: this.httpHeaders }).toPromise();
   }
   editCustomerInfo(customer: Customer): void {
     let r = this.http.put(`${this.apiServerUrl}/customer/update`, customer, { headers: this.httpHeaders });
