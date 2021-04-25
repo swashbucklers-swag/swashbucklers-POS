@@ -20,19 +20,18 @@
 <br>
 <nav>
 
-<div class="dropdown">
-  <label></label>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    # per page: {{this.employeeService.itemsPerPage}}
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" (click)="changeItemPerPage('5')">5</a></li>
-    <li><a class="dropdown-item" (click)="changeItemPerPage('10')">10</a></li>
-    <li><a class="dropdown-item" (click)="changeItemPerPage('25')">25</a></li>
-    <li><a class="dropdown-item" (click)="changeItemPerPage('50')">50</a></li>
-    <li><a class="dropdown-item" (click)="changeItemPerPage('100')">100</a></li>
-  </ul>
-</div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">
+      # per page: {{this.employeeService.itemsPerPage}}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" (click)="changeItemPerPage('5')">5</a></li>
+      <li><a class="dropdown-item" (click)="changeItemPerPage('10')">10</a></li>
+      <li><a class="dropdown-item" (click)="changeItemPerPage('25')">25</a></li>
+      <li><a class="dropdown-item" (click)="changeItemPerPage('50')">50</a></li>
+      <li><a class="dropdown-item" (click)="changeItemPerPage('100')">100</a></li>
+    </ul>
+  </div>
 </nav>
 <br>
 <br>

@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         break;
        }
        case "employees":{
-        this.router.navigate(['/employees/show']);
+        this.router.navigate(['/employees']);
         break;
       }
       case "customers":{

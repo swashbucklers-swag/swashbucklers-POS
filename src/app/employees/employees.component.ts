@@ -52,7 +52,7 @@ export class EmployeesComponent implements OnInit {
 
 
   async listEmployees(): Promise<void> {
-    console.log(localStorage.swagjwt);
+
     try {
       await this.employeeService.getEmployeeList().then(
         (response) => {
@@ -77,7 +77,6 @@ export class EmployeesComponent implements OnInit {
   addEmployee(newHire: Employee): void {
     this.employeeService.addEmployee(newHire).subscribe(
       (response: Employee) => {
-        console.log(response);
         this.listEmployees();
       },
       (error: HttpErrorResponse) => {

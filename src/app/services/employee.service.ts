@@ -2,7 +2,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment} from 'src/environments/environment';
+import { BASE_API_URL} from 'src/environments/environment';
 import { Employee } from '../common/employee';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { Employee } from '../common/employee';
 })
 export class EmployeeService {
 
-  private apiServerUrl = localStorage.getItem("swagjwt");
+  private apiServerUrl = BASE_API_URL.toString();
   private token = localStorage.getItem('swagjwt');
 
   public page = '0';
@@ -24,7 +24,7 @@ export class EmployeeService {
 
     console.log(this.token);
 
-    return this.httpClient.get(`${this.apiServerUrl}/employee/all/`,
+    return this.httpClient.get(`${this.apiServerUrl}/employee/all`,
       {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}, params: {page: this.page, offset: this.itemsPerPage }}).toPromise();
   }
 

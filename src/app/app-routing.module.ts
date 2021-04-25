@@ -22,13 +22,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'clock-in-out', component: ClockinClockoutComponent},
   { path: 'swashbucklers/landing-page', component: MainLandingPageComponent},
-  { path: 'employees/show', component: EmployeeListComponent},
+  { path: 'employees', component: EmployeesComponent },
   { path: 'orders', component: OrdersComponent},
   { path: 'createOrderForm', component: OrderFormComponent},
   { path: 'allOrders', component: OrderListComponent},
   { path: 'customers', component: CustomersComponent},
   { path: 'customers/add', component: AddCustomerComponent},
-  { path: 'employees', component: EmployeesComponent },
   { path: 'inventory/manage', component: InventoryComponent},
   { path: 'timesheets', component: ClockComponent}
 ];
