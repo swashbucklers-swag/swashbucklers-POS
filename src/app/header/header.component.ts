@@ -17,18 +17,22 @@ export class HeaderComponent implements OnInit, OnDestroy{
   public todayDate: Date;
 
   ngOnInit(){
-    CurrentEmployee.employeeLoggedIn.subscribe(emp => {
-      this.employeeName = emp.toString();
+   // CurrentEmployee.employeeLoggedIn.next(localStorage.getItem('swagEmpName'));
+    //CurrentEmployee.employeeLoggedIn.subscribe(emp => {
+      this.employeeName = localStorage.getItem("swagEmpName");
       console.log("Employee name: " + this.employeeName);
       this.todayDate = new Date();
-    })
+   // })
+
   }
 
   ngOnDestroy(){
     CurrentEmployee.employeeLoggedIn.unsubscribe();
   }
 
-  constructor(private router: Router){}
+  constructor(private router: Router){
+
+  }
 
   logoutMethod(){
     this.employeeName="";
@@ -44,15 +48,19 @@ export class HeaderComponent implements OnInit, OnDestroy{
         break;
        }
        case "orders":{
-        this.router.navigate(['/employees/show']);
+        this.router.navigate(['/orders']);
         break;
        }
        case "employees":{
         this.router.navigate(['/employees/show']);
         break;
       }
-      case "locations":{
-        this.router.navigate(['/employees/show']);
+      case "customers":{
+        this.router.navigate(['/customers']);
+        break;
+      }
+      case "inventory":{
+        this.router.navigate(['/inventory/manage']);
         break;
       }
       case "clockInOut":{
@@ -70,3 +78,5 @@ export class HeaderComponent implements OnInit, OnDestroy{
   }
 
 }
+
+

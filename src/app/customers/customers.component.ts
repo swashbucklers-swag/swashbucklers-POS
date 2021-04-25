@@ -22,8 +22,9 @@ export class CustomersComponent implements OnInit {
   public getCustomers(): void {
     this.service.getCustomers().then(
       response => {
-        this.customers = response.content;
         console.log(this.customers);
+        this.customers = response.content;
+        //console.log(this.customers);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

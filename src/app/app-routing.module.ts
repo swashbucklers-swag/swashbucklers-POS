@@ -13,6 +13,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
 import {CustomerComponent} from './customers/customer/customer.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { ClockComponent } from './clock/clock.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "swashbucklers"},
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'customers', component: CustomerComponent},
   { path: 'customers/add', component: AddCustomerComponent},
   { path: 'employees', component: EmployeesComponent },
-  { path: 'inventory/manage', component: InventoryComponent}
+  { path: 'inventory/manage', component: InventoryComponent},
+  { path: 'timesheets', component: ClockComponent}
 ];
 
 @NgModule({

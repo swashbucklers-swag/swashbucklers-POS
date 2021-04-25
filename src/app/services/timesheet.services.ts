@@ -24,7 +24,7 @@ export class TimesheetServices{
     return await this.http.post(BASE_API_URL+"/employee/clock/"+type,login,{headers:headerInfo}).toPromise()
   }
 
-  async getTimesheets(page: number, offset: number, sortby: string, order: string): Promise<any>{
+  async getTimesheets(pageSize: number = 25, pageNumber: number = 0): Promise<any>{
 
     const headerInfo = {
       'Content-Type': 'application/json',
@@ -32,16 +32,10 @@ export class TimesheetServices{
       //'Access-Control-Allow-Headers': 'Content-Type',
       'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
-    let optParams: string = "";
 
-    if(sortby || order || offset || page){
-      optParams="?"+ (sortby+"&" ? sortby : "") + (order+"&" ? order : "") +
-      (offset+"&" ? offset : "") + (page+"&" ? page : "");
 
-      optParams = optParams.substring(0,optParams.length);
-    }
-
-    return await this.http.get(BASE_API_URL+"/employee/clock/all"+optParams,{headers:headerInfo}).toPromise();
+    console.log()
+    return await this.http.get(BASE_API_URL+`/employee/clock/all?offset=${pageSize}&page=${pageNumber}`,{headers:headerInfo}).toPromise();
   }
 
   async updateTimesheet(timesheetId: number, newClockIn: string, newClockOut: string){

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentEmployee } from './models/globalConstants';
 
@@ -8,12 +8,13 @@ import { CurrentEmployee } from './models/globalConstants';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
 
-  constructor (private router: Router) {
+  constructor () {}
+
+  ngOnInit(): void {
     CurrentEmployee.employeeLoggedIn.next(localStorage.getItem('swagEmpName'));
-    //this.router.navigate(['/swashbucklers']);
   }
 
 }

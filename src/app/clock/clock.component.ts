@@ -10,6 +10,14 @@ import { TimesheetServices } from '../services/timesheet.services';
 })
 export class ClockComponent implements OnInit {
   public timesheets :Timesheet[];
+  isLoading=true;
+  pageSizeOptions:number[] = [5, 10, 25, 50, 100];
+
+    //pagination information
+    pageNumber:number = 0;
+    pageSize:number = 25;
+    totalPages:number;
+    totalElements:number;
 
 
   constructor(private router: Router, private timesheetService: TimesheetServices) {
@@ -17,17 +25,50 @@ export class ClockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTimesheets();
+    this.refreshTimesheets();
   }
 
-  public getTimesheets(): void{
-    this.timesheetService.getTimesheets(0,5,"","").then(data => {
-      this.timesheets = [];
-      this.timesheets = data.content;
-      console.log(this.timesheets);
-    }).catch(exception => {
-      console.log(exception.error);
-      //alert(exception.error.message);
-    })
+  setPageSize(event: any){
+    this.pageSize = parseInt(event.target.value, 10);
+  }
+  setPagination(){
+    this.refreshTimesheets();
+  }
+  pageFirst(){
+    this.pageNumber = 0;
+    this.refreshTimesheets();
+  }
+  pageLast(){
+    this.pageNumber = (this.totalPages - 1);
+    this.refreshTimesheets();
+  }
+  pageNext(){
+    if(this.pageNumber != (this.totalPages - 1)){
+      this.pageNumber++;
+      this.refreshTimesheets();
+    }
+  }
+
+  pagePrevious(){
+    if(this.pageNumber != 0){
+      this.pageNumber--;
+      this.refreshTimesheets();
+    }
+  }
+
+  async refreshTimesheets(){
+    this.isLoading = true;
+    try{
+      await this.timesheetService.getTimesheets(5,this.pageNumber).then(timesheets => {
+        this.timesheets = timesheets.content;
+        this.pageNumber = timesheets.pageable.pageNumber;
+        this.pageSize = timesheets.pageable.pageSize;
+        this.totalPages = timesheets.totalPages;
+        this.totalElements = timesheets.totalElements;
+      })
+    }catch(exception){
+      alert('Failed to load timesheets!\n\nIf this issue persists, contact your system administrator.');
+    }
+    this.isLoading = false;
   }
 }
