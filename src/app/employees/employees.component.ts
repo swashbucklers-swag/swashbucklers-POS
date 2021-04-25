@@ -20,7 +20,7 @@ export class EmployeesComponent implements OnInit {
   public first: boolean;
   public last: boolean;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(public employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.listEmployees();

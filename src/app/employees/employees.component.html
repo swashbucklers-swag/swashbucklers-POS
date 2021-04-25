@@ -17,19 +17,27 @@
     </div>
 </nav>
 
-
 <br>
+<nav>
 
-<div class="Number Displaying: ">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="offset" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
+<div class="dropdown">
+  <label></label>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    # per page: {{this.employeeService.itemsPerPage}}
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" >Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><a class="dropdown-item" (click)="changeItemPerPage('5')">5</a></li>
+    <li><a class="dropdown-item" (click)="changeItemPerPage('10')">10</a></li>
+    <li><a class="dropdown-item" (click)="changeItemPerPage('25')">25</a></li>
+    <li><a class="dropdown-item" (click)="changeItemPerPage('50')">50</a></li>
+    <li><a class="dropdown-item" (click)="changeItemPerPage('100')">100</a></li>
   </ul>
 </div>
+</nav>
+<br>
+<br>
+
+
 
 <div class="row" id="main-spot">
     <div class="clearfix">
