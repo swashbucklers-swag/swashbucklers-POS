@@ -57,7 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe } from '@angular/common';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -109,7 +109,8 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule
   ],
   // It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [
@@ -124,7 +125,8 @@ import { DatePipe } from '@angular/common';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule
 
   ],
   entryComponents: [

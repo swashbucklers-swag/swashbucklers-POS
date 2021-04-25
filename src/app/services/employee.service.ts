@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,12 +13,19 @@ export class EmployeeService {
   private apiServerUrl = localStorage.getItem("swagjwt");
   private token = localStorage.getItem('swagjwt');
 
+  public page = '0';
+  public itemsPerPage = '5';
+
+
   constructor(private httpClient: HttpClient) { }
 
 
   getEmployeeList(): Promise<any> {
-    return this.httpClient.get(`${this.apiServerUrl}/employee/all`,
-      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}}).toPromise();
+
+    console.log(this.token);
+
+    return this.httpClient.get(`${this.apiServerUrl}/employee/all/`,
+      {headers: {Authorization: 'Bearer '.concat(`${this.token}`)}, params: {page: this.page, offset: this.itemsPerPage }}).toPromise();
   }
 
   addEmployee(value: any): Observable<any> {

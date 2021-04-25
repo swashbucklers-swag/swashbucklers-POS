@@ -11,7 +11,7 @@ import { OrderListComponent } from './orders/order-list/order-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import {CreateUserComponent} from './users/createUsers/create-user.component';
-import {CustomerComponent} from './customers/customer/customer.component';
+import {CustomersComponent} from './customers/customers.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 import { ClockComponent } from './clock/clock.component';
 
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent},
   { path: 'createOrderForm', component: OrderFormComponent},
   { path: 'allOrders', component: OrderListComponent},
-  { path: 'customers', component: CustomerComponent},
+  { path: 'customers', component: CustomersComponent},
   { path: 'customers/add', component: AddCustomerComponent},
   { path: 'employees', component: EmployeesComponent },
   { path: 'inventory/manage', component: InventoryComponent},
