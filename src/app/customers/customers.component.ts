@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{Customer} from '../models/customer';
+import{Customer} from './customer/customer';
 import{CustomerService} from '../services/customer.service';
 import { Router } from '@angular/router';
 
@@ -27,6 +27,7 @@ totalElements:number;
   ngOnInit(): void {
     this.refreshCustomers();
   }
+
   onClickAdd(): void {
     this.router.navigate(['/customers/add']);
   }

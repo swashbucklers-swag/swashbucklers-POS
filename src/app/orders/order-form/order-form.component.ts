@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Customer } from 'src/app/models/customer';
+
 import { Inventory } from 'src/app/models/Inventory';
 import { Location } from 'src/app/models/location';
 import { Order, CreateOrder } from 'src/app/models/order';
@@ -16,7 +16,7 @@ export class OrderFormComponent implements OnInit {
 
   items: Inventory[];
 
-  createOrder: CreateOrder = { 
+  createOrder: CreateOrder = {
     customerId:0,
     location: new Location,
     statusHistory: [{
@@ -75,7 +75,7 @@ export class OrderFormComponent implements OnInit {
   }
 
   getCustomers(){
-    
+
   }
 
   // listItems(): void {
