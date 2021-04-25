@@ -8,11 +8,7 @@ import { BASE_API_URL } from '../../environments/environment';
 })
 export class OrderService {
 
-  private baseUrl = '/order/all';
   private baseUrlCreate = '/order/create';
-  private UrlFindByCustomerId = '/order/customer-id/';
-  private baseUrlItem = '/inventory/all';
-
 
   constructor(private http: HttpClient) { }
 
@@ -31,10 +27,11 @@ export class OrderService {
     create.subscribe();
   }
 
-  getOrdersPaginate(pageNumber:number, pageOffset:number, sortBy:string, order:string):Promise<any>{
+  getOrders(pageSize:number = 25, pageNumber:number = 0):Promise<any>{
 
     const headerInfo = {
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
       'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
     };
 
@@ -42,49 +39,8 @@ export class OrderService {
       headers: new HttpHeaders(headerInfo)
     };
 
-    return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl)+'?page='+pageNumber+'&offset='+pageOffset+'&sortby='+sortBy+'&order='+order, requestOptions).toPromise();
+    return this.http.get<any>(BASE_API_URL.concat(`/order/all?offset=${pageSize}&page=${pageNumber}`), requestOptions).toPromise();
   }
-
-  getOrders():Promise<any>{
-
-    const headerInfo = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-    };
-
-    const requestOptions = {
-      headers: new HttpHeaders(headerInfo)
-    };
-
-    return this.http.get<Order[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
-  }
-
-  // getCustomers(): Promise<any> {
-
-  //   const headerInfo = {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-  //   };
-
-  //   const requestOptions = {
-  //     headers: new HttpHeaders(headerInfo)
-  //   };
-
-  //   return this.http.get<Customer[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
-  // }
-
-  // getOrdersByCustomerService(customerId:number):Promise<any> {
-  //   const headerInfo = {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-  //   };
-
-  //   const requestOptions = {
-  //     headers: new HttpHeaders(headerInfo)
-  //   };
-
-  //   return this.http.get<Order[]>(BASE_API_URL.concat(this.UrlFindByCustomerId)+customerId, requestOptions).toPromise();
-  // }
 }
 
 

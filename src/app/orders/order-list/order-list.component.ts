@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Customer } from 'src/app/models/customer';
 import { Order } from 'src/app/models/order';
+import { CustomerService } from 'src/app/services/customer.service';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
@@ -8,55 +10,29 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-
-  orders: Order[] = [];
-  orderService:OrderService;
+  @Input() order:Order;
   editVisible:boolean = false;
   customerId : number = 0;
 
-  page : {
-    pageNumber: number;
-    pageOffeset: number;
-    sortBy: string;
-    order: string;
-  }
-
-  constructor(orderService: OrderService) {
+  constructor(private orderService: OrderService, private customerService:CustomerService) {
     this.orderService = orderService;
   }
 
-  ngOnInit(): any {
-    this.getAllOrders();
-    // this.getOrdersByCustomer(this.customerId);
+  ngOnInit(): void {
   }
 
   getAllOrders() {
 
-    this.orderService.getOrders().then(order => this.orders = order.content);
+    this.orderService.getOrders().then(order => this.order = order.content);
   }
 
-  getAllOrdersPagination() {
-
-    this.orderService.getOrdersPaginate(this.page.pageNumber-1, this.page.pageOffeset, this.page.sortBy, this.page.order).then(order => this.orders = order.content);
-  }
-
-
-  toggleViewCustomerOrders() {
+  toggleEditInfo() {
     this.editVisible = !this.editVisible;
   }
 
-  // getOrdersByCustomer(customerId:number){
-  //   this.orderService.getOrdersByCustomerService(customerId).then(order => this.orders = order.content);
-  // }
-
-  // processResult() {
-    // return order => {
-    //   this.orders = order.content;
-    //   this.page.pageSize = order.content.pageable.pageSize;
-    //   this.page.totalPages = order.content.pageable.totalPages;
-    //   this.page.totalElements = order.content.totalElements;
-    //   this.page.pageNumber = order.content.number + 1;
-    // }
-  // }
+  getOneCustomer(phoneNumber:string) {
+    let customer: Promise<Customer> = this.customerService.getCustomerByPhoneNumber(phoneNumber);
+    return customer;
+  }
 
 }
