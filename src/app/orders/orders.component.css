@@ -1,15 +1,4 @@
-.extra-space {
-  height: 100px;
-}
-
-.box {
-  height: 150px;
-  width: 200px;
-  background-color: #eeebdd;
-  box-shadow: 5px 5px 3px 1px #999;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+#orderMain {
+  margin: 0;
+  padding: 10px;
 }

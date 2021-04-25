@@ -1,48 +1,29 @@
 <div>
-        <table style="width: 100%;" class="table">
-            <colgroup>
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 35%;">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Purchase Date</th>
-                    <th scope="col">Delivery Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">{{ order.customer.firstName }} {{order.customer.lastName}}</th>
-                    <td>{{ order.orderDetails[0].item.name }}</td>
-                    <td>{{ order.orderDetails[0].quantity }}</td>
-                    <td>{{ order.dateOfOrder | date}}</td>
-                    <td>{{ order.location.address }}, {{ order.location.city }}, {{ order.location.state }} {{ order.location.zip }}</td>
-                    <!-- <td><button (click)="toggleEditInfo()" style="width: 100%;" class="btn btn-warning">Edit</button></td> -->
-                </tr>
-            </tbody>
-        </table>
-        <!-- <td>
-            <table *ngIf="editVisible" class="table table-light table-striped">
-                <thead>
-                    <tr>
-                        <th>Item Name</th>
-                        <th>Quantity</th>
-                        <th>Purchase Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let thisOrder of orders, let i = index">
-                        <td>{{ thisOrder.orderDetails[0].item.name }}</td>
-                        <td>{{ thisOrder.orderDetails[0].quantity }}</td>
-                        <td>{{ thisOrder.dateOfOrder | date }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </td> -->
+    <table style="width: 100%;" class="table">
+        <colgroup>
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 35%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Purchase Date</th>
+                <th scope="col">Delivery Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ order.customer.firstName }} {{order.customer.lastName}}</th>
+                <td>{{ order.orderDetails[0].item.name }}</td>
+                <td>{{ order.orderDetails[0].quantity }}</td>
+                <td>{{ order.dateOfOrder | date}}</td>
+                <td>{{ order.location.address }}, {{ order.location.city }}, {{ order.location.state }} {{order.location.zip }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

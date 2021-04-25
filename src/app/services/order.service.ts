@@ -8,11 +8,7 @@ import { BASE_API_URL } from '../../environments/environment';
 })
 export class OrderService {
 
-  private baseUrl = '/order/all';
   private baseUrlCreate = '/order/create';
-  private UrlFindByCustomerId = '/order/customer-id/';
-  private baseUrlItem = '/inventory/all';
-
 
   constructor(private http: HttpClient) { }
 
@@ -45,33 +41,6 @@ export class OrderService {
 
     return this.http.get<any>(BASE_API_URL.concat(`/order/all?offset=${pageSize}&page=${pageNumber}`), requestOptions).toPromise();
   }
-
-  // getCustomers(): Promise<any> {
-
-  //   const headerInfo = {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-  //   };
-
-  //   const requestOptions = {
-  //     headers: new HttpHeaders(headerInfo)
-  //   };
-
-  //   return this.http.get<Customer[]>(BASE_API_URL.concat(this.baseUrl), requestOptions).toPromise();
-  // }
-
-  // getOrdersByCustomerService(customerId:number):Promise<any> {
-  //   const headerInfo = {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer '.concat(localStorage.getItem('swagjwt'))
-  //   };
-
-  //   const requestOptions = {
-  //     headers: new HttpHeaders(headerInfo)
-  //   };
-
-  //   return this.http.get<Order[]>(BASE_API_URL.concat(this.UrlFindByCustomerId)+customerId, requestOptions).toPromise();
-  // }
 }
 
 

@@ -71,7 +71,6 @@ import { CustomerComponent } from './customers/customer/customer.component';
     InventoryItemComponent,
     AddCustomerComponent,
     CustomerComponent
-
   ],
   //you have to import and export here so angular knows you want to use it
   imports: [

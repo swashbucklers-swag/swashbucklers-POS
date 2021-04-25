@@ -2,14 +2,11 @@ import { Location } from "./location";
 
 export class Customer {
     customerId: number;
-    firstName: String;
-    lastName: String;
-    email: String;
-    password: String;
-    phoneNumber: String;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    phoneNumber: string;
     location: Location;
     
 }
-
-
-// Get by Customer in a Modal by Phone Number 
