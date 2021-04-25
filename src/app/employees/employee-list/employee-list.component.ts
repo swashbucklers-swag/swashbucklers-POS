@@ -19,7 +19,7 @@ export class EmployeeListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.listEmployees(); 
+    this.listEmployees();
   }
 
 

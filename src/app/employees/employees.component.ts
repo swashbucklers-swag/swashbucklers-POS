@@ -12,26 +12,67 @@ export class EmployeesComponent implements OnInit {
 
   public employees: Employee[];
   public editingEmployee: Employee;
+  public isLoading = true;
+
+  public pageInfo: any;
+  public currentPage: number;
+  public totalPages: number;
+  public first: boolean;
+  public last: boolean;
 
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    console.log(this.employees);
     this.listEmployees();
-
   }
 
-  listEmployees(): void {
-    this.employeeService.getEmployeeList().then(
-      (response) => {
-        this.employees = response.content;
-        console.log(this.employees);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+  changePage(p: string): void {
+    let i = 0;
+    switch (p){
+      case 'first':
+        i = 0;
+        break;
+      case 'previous':
+        i = this.currentPage - 1;
+        break;
+      case 'next':
+        i = this.currentPage + 1;
+        break;
+      case 'last':
+        i = this.totalPages - 1;
+    }
+    this.employeeService.page = i.toString();
+    this.listEmployees();
   }
+
+  changeItemPerPage(ipp: string): void {
+    this.employeeService.itemsPerPage = ipp;
+    this.listEmployees();
+  }
+
+
+  async listEmployees(): Promise<void> {
+    console.log(localStorage.swagjwt);
+    try {
+      await this.employeeService.getEmployeeList().then(
+        (response) => {
+          this.employees = response.content;
+          this.pageInfo = response.pageable;
+          this.currentPage = response.number;
+          this.totalPages = response.totalPages;
+          this.first = response.first;
+          this.last = response.last;
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+    } catch (exception) {
+      alert('Failed to load employees');
+    }
+    this.isLoading = false;
+  }
+
 
   addEmployee(newHire: Employee): void {
     this.employeeService.addEmployee(newHire).subscribe(
@@ -45,8 +86,8 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
-  updateEmployee(editEmpl: Employee): void {
-    this.employeeService.updateEmployee(editEmpl).subscribe(
+  updateEmployee(editEmployee: Employee): void {
+    this.employeeService.updateEmployee(editEmployee).subscribe(
       (response: Employee) => {
         console.log(response);
         this.listEmployees();

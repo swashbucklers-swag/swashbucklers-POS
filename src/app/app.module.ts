@@ -44,6 +44,7 @@ import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.c
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.c
         HttpClientModule,
         MatSelectModule,
         MatFormFieldModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatIconModule
     ],
   // It doesnt come with this section, but it doesnt work without it either ¯\_(ツ)_/¯
   exports: [

@@ -20,6 +20,16 @@
 
 <br>
 
+<div class="Number Displaying: ">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="offset" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" >Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
 
 <div class="row" id="main-spot">
     <div class="clearfix">
@@ -42,14 +52,8 @@
                         <td><span>{{employee.email}}</span></td>
                         <td><span>{{employee.phoneNumber}}</span></td>
                         <td><span>{{employee.employeeId}}</span></td>
-                        <td><span>{{employee.location}}</span></td>
-                        <td>
-<!--                          <button type="button" class="" (click)="openModal(employee, 'Edit')">Edit</button>-->
-                          <button  (click)="openModal(employee,'Edit')"><img src="edit-box.ico" alt="Edit"></button>
-                        </td>
-                        <td>
-                          <button style="display: none"></button>
-                        </td>
+                        <td><span>{{employee.location?.state}}</span></td>
+                      <td><button (click)="openModal(employee,'Edit')"><mat-icon>edit</mat-icon></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -58,44 +62,23 @@
 </div>
 
 
+<nav aria-label="Page navigation example" style="position:absolute; left: 50%; transform: translate(-50%, 0%);" *ngIf='!isLoading'>
+  <ul class="pagination">
+    <li class="page-item" ><a class="page-link" (click)="changePage('first')" *ngIf="currentPage > 1">First</a></li>
+    <li class="page-item"><a class="page-link" (click)="changePage('first')" *ngIf="currentPage > 1">First</a></li>
+    <li class="page-item"><a class="page-link" (click)="changePage('previous')" *ngIf="currentPage > 0">Previous</a></li>
+    <li class="page-item"><a class="page-link" style="color: black; font-weight: bold;">Current Page: {{ currentPage + 1 }}</a></li>
+    <li class="page-item"><a class="page-link" (click)="changePage('next')" *ngIf="currentPage <= (totalPages-2)">Next</a></li>
+    <li class="page-item"><a class="page-link" (click)="changePage('last')" *ngIf="currentPage <= (totalPages-1)">Last</a></li>
+  </ul>
+</nav>
 
 <!-- Add Employee Modal-->
 <div class="modal fade" id="AddEmployee" tabindex="-1" aria-labelledby="AddEmployeeLabel" aria-hidden="true">
  <app-add-employee></app-add-employee>
 </div>
 
-
+<!-- Edit Employee Modal -->
 <div class="modal fade" id="EditEmployee" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
         <app-edit-employee [editEmployee]="editingEmployee"></app-edit-employee>
 </div>
-
-<!--<form #addForm="ngForm" (ngSubmit)="addEmployee(addForm)">-->
-<!--  <div class="form-group">-->
-<!--    <label for="firstName">First Name</label>-->
-<!--    <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="First" required>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="lastName">Last Name</label>-->
-<!--    <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last" required>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="rank">Rank</label>-->
-<!--    <input type="text" ngModel name="rank" class="form-control" id="rank" placeholder="Rank" required>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="email">Email Address</label>-->
-<!--    <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="phone">Phone</label>-->
-<!--    <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="location"></label>-->
-<!--    <input type="text" ngModel name="location" class="form-control" id="location">-->
-<!--  </div>-->
-<!--  <div class="modal-footer">-->
-<!--    <button type="button" id="add-employee-form" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>-->
-<!--  </div>-->
-<!--</form>-->
