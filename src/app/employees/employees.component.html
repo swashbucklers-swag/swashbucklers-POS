@@ -1,5 +1,5 @@
 <div class="clearfix">
-    <nav class="navbar-brand float-start">Manage Employee's</nav>
+    <nav class="navbar-brand float-center">Manage Employee's</nav>
 </div>
 
 <div><br></div>
@@ -7,32 +7,46 @@
 <nav class="navbar navbar-expand navbar-ligt bg-light">
 
     <div class="col nav-item-active" >
-        <a class="navbar-brand button" (click)="openModal(null,'Add')">Add Employee</a>
+        <a class="btn btn-outline-success navbar-brand button" (click)="openModal(null,'Add')">Add Employee</a>
     </div>
 
     <div class="col"></div>
+    <div class="col"></div>
 
-    <div class="col">
-        <input type="text" class="form-control" placeholder="Search Employees" aria-label="uptosomething">
+
+    <div class="col flex">
+      <div class="dropdown float-end">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          # per page: {{this.employeeService.itemsPerPage}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="changeItemPerPage('5')">5</a></li>
+          <li><a class="dropdown-item" (click)="changeItemPerPage('10')">10</a></li>
+          <li><a class="dropdown-item" (click)="changeItemPerPage('25')">25</a></li>
+          <li><a class="dropdown-item" (click)="changeItemPerPage('50')">50</a></li>
+          <li><a class="dropdown-item" (click)="changeItemPerPage('100')">100</a></li>
+        </ul>
+      </div>
+<!--        <input type="text hidden" class="form-control" placeholder="Search Employees" aria-label="uptosomething">-->
     </div>
 </nav>
 
 <br>
-<nav>
+<!--<nav>-->
 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">
-      # per page: {{this.employeeService.itemsPerPage}}
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" (click)="changeItemPerPage('5')">5</a></li>
-      <li><a class="dropdown-item" (click)="changeItemPerPage('10')">10</a></li>
-      <li><a class="dropdown-item" (click)="changeItemPerPage('25')">25</a></li>
-      <li><a class="dropdown-item" (click)="changeItemPerPage('50')">50</a></li>
-      <li><a class="dropdown-item" (click)="changeItemPerPage('100')">100</a></li>
-    </ul>
-  </div>
-</nav>
+<!--  <div class="dropdown">-->
+<!--    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--      # per page: {{this.employeeService.itemsPerPage}}-->
+<!--    </button>-->
+<!--    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+<!--      <li><a class="dropdown-item" (click)="changeItemPerPage('5')">5</a></li>-->
+<!--      <li><a class="dropdown-item" (click)="changeItemPerPage('10')">10</a></li>-->
+<!--      <li><a class="dropdown-item" (click)="changeItemPerPage('25')">25</a></li>-->
+<!--      <li><a class="dropdown-item" (click)="changeItemPerPage('50')">50</a></li>-->
+<!--      <li><a class="dropdown-item" (click)="changeItemPerPage('100')">100</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
 <br>
 <br>
 
@@ -52,15 +66,18 @@
                         <th><span>Location</span></th>
                     </tr>
                 </thead>
-                <tbody>
+              <div *ngIf='isLoading' class="spinner-border text-danger" role="status" style="position:absolute; left: 49.1%;">
+                <span class="sr-only"></span>
+              </div>
+                <tbody *ngIf="!isLoading">
                     <tr *ngFor="let employee of employees" class="clearfix" >
-                        <td><span>{{employee.firstName}} {{employee.lastName}}</span></td>
-                        <td ><span>{{employee.rank}}</span></td>
-                        <td><span>{{employee.email}}</span></td>
-                        <td><span>{{employee.phoneNumber}}</span></td>
-                        <td><span>{{employee.employeeId}}</span></td>
-                        <td><span>{{employee.location?.state}}</span></td>
-                      <td><button (click)="openModal(employee,'Edit')"><mat-icon>edit</mat-icon></button></td>
+                        <td class="align-middle"><span>{{employee.firstName}} {{employee.lastName}}</span></td>
+                        <td class="align-middle"><span>{{employee.rank}}</span></td>
+                        <td class="align-middle"><span>{{employee.email}}</span></td>
+                        <td class="align-middle"><span>{{employee.phoneNumber}}</span></td>
+                        <td class="align-middle"><span>{{employee.employeeId}}</span></td>
+                        <td class="align-middle"><span>{{employee.location?.state}}</span></td>
+                      <td  style="border-bottom: #ffffff"><button (click)="openModal(employee,'Edit')"><mat-icon>edit</mat-icon></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -71,7 +88,7 @@
 
 <nav aria-label="Page navigation example" style="position:absolute; left: 50%; transform: translate(-50%, 0%);" *ngIf='!isLoading'>
   <ul class="pagination">
-    <li class="page-item" ><a class="page-link" (click)="changePage('first')" *ngIf="currentPage > 1">First</a></li>
+<!--    <li class="page-item disabled" *ngIf="first"><a class="page-link" (click)="changePage('first')" *ngIf="currentPage > 1">First</a></li>-->
     <li class="page-item"><a class="page-link" (click)="changePage('first')" *ngIf="currentPage > 1">First</a></li>
     <li class="page-item"><a class="page-link" (click)="changePage('previous')" *ngIf="currentPage > 0">Previous</a></li>
     <li class="page-item"><a class="page-link" style="color: black; font-weight: bold;">Current Page: {{ currentPage + 1 }}</a></li>
