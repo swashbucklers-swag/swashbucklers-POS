@@ -1,0 +1,11 @@
+.extra-space {
+  height: 50px;
+}
+
+.little-space{
+  height: 10px;
+}
+.loginBox {
+  background-color: #faf8f2;
+  box-shadow: 5px 5px 3px 1px #999;
+}

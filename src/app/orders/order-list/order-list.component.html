@@ -1,0 +1,29 @@
+<div>
+    <table style="width: 100%;" class="table">
+        <colgroup>
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 35%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Purchase Date</th>
+                <th scope="col">Delivery Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ order.customer.firstName }} {{order.customer.lastName}}</th>
+                <td>{{ order.orderDetails[0].item.name }}</td>
+                <td>{{ order.orderDetails[0].quantity }}</td>
+                <td>{{ order.dateOfOrder | date}}</td>
+                <td>{{ order.location.address }}, {{ order.location.city }}, {{ order.location.state }} {{order.location.zip }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

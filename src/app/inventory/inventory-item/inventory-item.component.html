@@ -1,0 +1,67 @@
+<div>
+    <table style="width: 100%;" class="table">
+        <colgroup>
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 35%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 6%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 7%;">
+            <col span="1" style="width: 7%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Quantity</th>
+                <th scope="col" colspan="2">Edit Properties</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ inventory.itemId }}</th>
+                <td>{{ inventory.name }}</td>
+                <td>{{ inventory.description }}</td>
+                <td>{{ inventory.price | currency}}</td>
+                <td>{{ inventory.discount }}</td>
+                <td>{{ inventory.quantity }}</td>
+                <td><button (click)="toggleEditInfo()" style="width: 100%;" class="btn btn-warning">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form *ngIf="editVisible" action="" style="padding: 5px;" class="form-horizontal">
+        <div class="form-control">
+            <div class="input-group" style="padding-top: 10px;">
+                <label for="name" style="padding-right: 10px; padding-left: 10px;">Name:</label>
+                <input [(ngModel)]="inventory.name" class="form-control" type="text" name="name">
+
+                <label for="price" style="padding-right: 10px; padding-left: 10px;">Price:</label>
+                <input [(ngModel)]="inventory.price" class="form-control" type="number" min="0" name="price">
+
+                <button (click)="saveInfo()" class="btn btn-primary">Save Info</button>
+            </div>
+
+            <div class="input-group" style="padding-top: 10px;">
+                <label for="desc" style="padding-right: 10px; padding-left: 10px;">Description:</label>
+                <textarea [(ngModel)]="inventory.description" class="form-control" type="text" name="desc"></textarea>
+            </div>
+        </div>
+        
+        <div class="input-group" style="padding-top: 10px;">
+            <label for="discount" style="padding-right: 10px; padding-left: 10px;">Discount:</label>
+            <input [(ngModel)]="inventory.discount" class="form-control col-xs-1" type="number" min="0" max="99" name="discount">
+
+            <button (click)="saveDiscount()" class="btn btn-primary">Save Discount</button>
+
+            <label for="quant" style="padding-right: 10px; padding-left: 10px;">Quantity:</label>
+            <input [(ngModel)]="inventory.quantity" class="form-control" type="number" min="0" name="quant">
+
+            <button (click)="saveQuantity()" class="btn btn-primary">Save Quantity</button>
+        </div>
+    </form>
+</div>

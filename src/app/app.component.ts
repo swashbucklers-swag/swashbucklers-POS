@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CurrentEmployee } from './models/globalConstants';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'hello-world';
+export class AppComponent implements OnInit{
+
+
+  constructor () {}
+
+  ngOnInit(): void {
+    CurrentEmployee.employeeLoggedIn.next(localStorage.getItem('swagEmpName'));
+  }
+
 }

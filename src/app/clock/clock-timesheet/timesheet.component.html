@@ -1,0 +1,47 @@
+<div>
+  <table style="width: 100%;" class="table">
+    <colgroup>
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="col-1">Emp ID </th>
+        <th class="col-2">First name</th>
+        <th class="col-2">Last name</th>
+        <th class="col-1">Timesheet ID</th>
+        <th class="col-2">Clock in</th>
+        <th class="col-2">Clock out</th>
+        <th class="col-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="col-1" >{{timesheet.employee.employeeId}}</th>
+        <th class="col-2">{{timesheet.employee.firstName}}</th>
+        <th class="col-2">{{timesheet.employee.lastName}}</th>
+        <th class="col-1">{{timesheet.timesheetId}}</th>
+        <th class="col-2">{{timesheet.clockIn}}</th>
+        <th class="col-2">{{timesheet.clockOut}}</th>
+        <th class="col-2"><button (click)="toggleEditInfo()" class="btn btn-warning">Edit</button></th>
+      </tr>
+    </tbody>
+  </table>
+  <form *ngIf="editVisible" action="" class="form-horizontal">
+    <div class="form-control">
+      <div class="input-group" >
+        <div class="col-6" ></div>
+        <input [(ngModel)]="timesheet.clockIn" class="form-control" type="text" name="clockIn" required >
+        <input [(ngModel)]="timesheet.clockOut" class="form-control" type="text" name="clockOut" required style="margin-left: 10px;">
+        <button (click)="saveInfo()" class="btn btn-primary" style="float: right; margin-left: 10px;">Save Info</button>
+        <div class="col-1" ></div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="bg-danger header-height">
+  <div class="row align-items-center">
+    <div class="col-md-2">
+      <div class="list-group">
+        <div class="list-group-item bg-danger" name="employeeCard" >
+          <p class="mb-1 ">Welcome</p>
+          <div class="d-flex w-100 justify-content-between">
+            <small>{{todayDate | date:'small'}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 text-sm-center">
+      <h1>Swashbucklers</h1>
+    </div>
+    <div class="col-md-2">
+      <div class="list-group">
+        <div class="list-group-item w-100 bg-danger" >
+          <a type="button" name ="logoutButton" (click)="logoutMethod()" class="btn text-nowrap" >Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mainMenuNavBar">
+    <div class="navbar navbar-expand-lg navbar-light ">
+      <div class="navbar-collapse justify-content-center">
+        <ul class="navbar-nav mb-2">
+          <li class="">
+            <a type="button" name="home" #home (click)="redirect(home)" class="btn text-nowrap">Home</a>
+          </li>
+          <li class="">
+            <a type="button" name="orders" #orders (click)="redirect(orders)" class="btn text-nowrap">Orders</a>
+          </li>
+          <li class="">
+            <a type="button" name="employees" #employees (click)="redirect(employees)" class="btn text-nowrap">Employees</a>
+          </li>
+          <li class="">
+            <a type="button" name="customers" #customers (click)="redirect(customers)" class="btn text-nowrap" >Customers</a>
+          </li>
+          <li class="">
+            <a type="button" name="inventory" #inventory (click)="redirect(inventory)" class="btn text-nowrap" >Inventory</a>
+          </li>
+          <li class="">
+            <a type="button" name="timesheets" #timesheets (click)="redirect(timesheets)" class="btn text-nowrap">Timesheets</a>
+          </li>
+          <li class="">
+            <a type="button" name="clockInOut" #clock (click)="redirect(clock)" class="btn text-nowrap">Clock in/out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
