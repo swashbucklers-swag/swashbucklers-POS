@@ -18,4 +18,4 @@ export const environment = {
 
 //todo change base url to aws once backend is deployed
 //Base url for api
-export const BASE_API_URL:string = 'http://127.0.0.1:9090';
+export const BASE_API_URL:string = 'URL_REDACTED';
