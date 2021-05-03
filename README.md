@@ -7,7 +7,7 @@ This is the front end of a point of sales (POS) system for a brick and mortar st
 ## Technologies Used
 
 * Angular 2+
-* Anuglar Material
+* Angular Material
 * Bootstrp 5
 * HTML 5
 * CSS 3
