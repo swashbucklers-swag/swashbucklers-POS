@@ -28,8 +28,8 @@ To-do list:
 
 ## Contributors
 
-> Daniel Bernier
-> Steven Ceglarek
-> Nick Zimmerman
-> John Stone
-> Edson Rodriguez
+* Daniel Bernier
+* Steven Ceglarek
+* Nick Zimmerman
+* John Stone
+* Edson Rodriguez
